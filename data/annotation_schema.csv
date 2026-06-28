@@ -1,0 +1,6 @@
+user_id,image_id,context,timestamp,preference_level,face_score,hair_score,outfit_score,expression_score,overall_score,comment,annotator_flag,seen_before,fan_of_subject,trend_score,celebrity_score,capture_quality
+u100,img_0100,insta_like,2026-06-01T12:34:00Z,5,5,4,3,5,5,natural makeup long hair,pass,false,false,0.3,0.5,4
+u101,img_0101,insta_like,2026-06-01T12:35:12Z,3,3,2,4,3,3,likes edgy outfit,pass,false,false,0.2,0.4,3
+u102,img_0102,insta_like,2026-06-01T12:36:01Z,4,5,4,4,4,4,prefers soft vibe,pass,false,false,0.1,0.3,5
+u103,img_0103,insta_like,2026-06-02T09:11:20Z,2,3,2,2,2,2,not appealing,pass,true,false,0.4,0.6,3
+u104,img_0104,insta_like,2026-06-02T09:15:00Z,5,5,5,5,5,5,strong preference,pass,false,true,0.2,0.8,5

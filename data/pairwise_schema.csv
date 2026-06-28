@@ -1,0 +1,6 @@
+user_id,image_A,image_B,winner,context,timestamp
+u100,img_0100,img_0201,A,insta_session,2026-06-01T12:40:00Z
+u101,img_0150,img_0110,B,insta_session,2026-06-01T12:41:05Z
+u102,img_0102,img_0122,A,insta_session,2026-06-01T12:42:30Z
+u103,img_0103,img_0155,A,annotation_task,2026-06-02T10:00:00Z
+u104,img_0104,img_0111,B,annotation_task,2026-06-02T10:05:00Z

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Face Annotation Viewer</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0f0f1a;
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    color: #a0c4ff;
+    margin-bottom: 16px;
+  }
+
+  #progress-wrap {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 16px;
+  }
+
+  #progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    color: #888;
+  }
+
+  #progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    background: #2a2a3a;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  #progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+
+  #identity-info {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  #image-container {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .image-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 420px;
+    background: #1a1a2e;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .image-card.selected {
+    border-color: #4caf50;
+  }
+
+  .image-card-label {
+    padding: 8px 14px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background: #252540;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .image-card-label .label-tag {
+    color: #a0c4ff;
+  }
+
+  .image-card-label .identity-name {
+    color: #ffd54f;
+    font-size: 0.85rem;
+  }
+
+  .image-wrapper {
+    position: relative;
+    background: #111;
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .image-wrapper .error-msg {
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .image-wrapper .loading-msg {
+    color: #888;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 20px;
+  }
+
+  #buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    padding: 10px 28px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+
+  .btn:hover { opacity: 0.85; }
+  .btn:active { transform: scale(0.97); }
+
+  .btn-a     { background: #2196f3; color: #fff; }
+  .btn-b     { background: #ff9800; color: #fff; }
+  .btn-equal { background: #9c27b0; color: #fff; }
+  .btn-skip  { background: #555; color: #ccc; }
+
+  #error-banner {
+    background: #2d1a1a;
+    border: 1px solid #ff6b6b;
+    border-radius: 8px;
+    padding: 12px 18px;
+    color: #ff8080;
+    font-size: 0.88rem;
+    margin-bottom: 16px;
+    max-width: 700px;
+    width: 100%;
+    display: none;
+  }
+
+  #completion {
+    display: none;
+    text-align: center;
+    padding: 40px;
+  }
+
+  #completion h2 { color: #81c784; margin-bottom: 12px; }
+  #completion p { color: #aaa; margin-bottom: 6px; }
+
+  #save-status {
+    font-size: 0.82rem;
+    color: #555;
+    margin-top: 8px;
+  }
+
+  #completion-dl a {
+    color: #81c784;
+  }
+</style>
+</head>
+<body>
+
+<h1>Face Annotation Viewer</h1>
+
+<div id="progress-wrap">
+  <div id="progress-label">
+    <span id="progress-text">Đang tải...</span>
+    <span id="progress-pct">0%</span>
+  </div>
+  <div id="progress-bar-bg">
+    <div id="progress-bar"></div>
+  </div>
+</div>
+
+<div id="identity-info"></div>
+
+<div id="error-banner"></div>
+
+<div id="image-container">
+  <div class="image-card" id="card-a">
+    <div class="image-card-label">
+      <span class="label-tag">Ảnh A</span>
+      <span class="identity-name" id="label-a"></span>
+    </div>
+    <div class="image-wrapper" id="wrapper-a">
+      <div class="loading-msg">Đang tải ảnh...</div>
+    </div>
+  </div>
+
+  <div class="image-card" id="card-b">
+    <div class="image-card-label">
+      <span class="label-tag">Ảnh B</span>
+      <span class="identity-name" id="label-b"></span>
+    </div>
+    <div class="image-wrapper" id="wrapper-b">
+      <div class="loading-msg">Đang tải ảnh...</div>
+    </div>
+  </div>
+</div>
+
+<div id="buttons">
+  <button type="button" class="btn btn-a" id="btn-choose-a">Chọn A</button>
+  <button type="button" class="btn btn-b" id="btn-choose-b">Chọn B</button>
+  <button type="button" class="btn btn-equal" id="btn-equal">Equal</button>
+  <button type="button" class="btn btn-skip" id="btn-skip">Skip</button>
+</div>
+
+<div id="save-status"></div>
+
+<div id="completion">
+  <h2>Hoàn thành!</h2>
+  <p>Đã ghi <span id="completed-count">0</span> kết quả.</p>
+  <p id="completion-dl"><a id="download-link" href="#" download="annotations_result.json">Tải file kết quả</a></p>
+</div>
+
+<script>
+(function () {
+  var FOLDER_1 = '../data/annotations/frames/';
+  var FOLDER_2 = '../data/processed/frames/';
+  var PAIRS_URL = '../data/annotations/annotation_pairs.json';
+  var RESULT_KEY = 'face_annotation_results';
+
+  var pairs = [];
+  var currentIndex = 0;
+  var results = [];
+  var selected = null;
+
+  // ── Init ─────────────────────────────────────────────────────────────────────
+  async function init() {
+    try {
+      var res = await fetch(PAIRS_URL);
+      if (!res.ok) throw new Error('Khong the tai annotation_pairs.json (HTTP ' + res.status + ')');
+      var data = await res.json();
+      pairs = data.pairs || [];
+
+      var saved = null;
+      try { saved = JSON.parse(localStorage.getItem(RESULT_KEY) || '[]'); } catch (_) {}
+
+      if (Array.isArray(saved) && saved.length > 0) {
+        results = saved;
+        var annotatedIds = {};
+        results.forEach(function (r) { annotatedIds[r.pair_id] = true; });
+        pairs = pairs.filter(function (p) { return !annotatedIds[p.pair_id]; });
+      }
+
+      if (pairs.length === 0) {
+        showCompletion();
+        return;
+      }
+
+      updateProgress();
+      loadCurrentPair();
+    } catch (err) {
+      showError('Loi khoi tao: ' + err.message);
+    }
+  }
+
+  function normalizePath(p) {
+    if (!p) return "";
+    return p.replace(/^frames\//, "");
+  }
+
+  function buildUrls(cleanPath) {
+    var url1 = FOLDER_1 + cleanPath;
+    var m = cleanPath.match(/^(.+?)(_0*(\d+))(\.[^.]+)$/);
+    if (m) {
+      var name = m[1];
+      var ext = m[4];
+      var padded = String(m[3]).padStart(3, '0');
+      return [
+        url1,
+        FOLDER_2 + encodeURIComponent(name) + '/' + encodeURIComponent(name) + '_' + padded + ext
+      ];
+    }
+    return [url1];
+  }
+  // ── Load current pair ───────────────────────────────────────────────────────
+  function loadCurrentPair() {
+    if (currentIndex >= pairs.length) {
+      showCompletion();
+      return;
+    }
+
+    selected = null;
+    document.getElementById('card-a').classList.remove('selected');
+    document.getElementById('card-b').classList.remove('selected');
+
+    var pair = pairs[currentIndex];
+    var totalDone = results.length;
+    var totalAll = totalDone + pairs.length;
+
+    document.getElementById('label-a').textContent = pair.identity_A || '';
+    document.getElementById('label-b').textContent = pair.identity_B || '';
+    document.getElementById('identity-info').textContent =
+      'Cap ' + (currentIndex + 1) + ' / ' + totalAll + ' — ID: ' + (pair.pair_id || currentIndex + 1);
+
+    loadImage('wrapper-a', pair.frame_A);
+    loadImage('wrapper-b', pair.frame_B);
+  }
+
+  // ── Image loading with fallback ──────────────────────────────────────────────
+  function loadImage(wrapperId, relativePath) {
+    var wrapper = document.getElementById(wrapperId);
+    wrapper.innerHTML = '<div class="loading-msg">Dang tai anh...</div>';
+
+    if (!relativePath) {
+      showImageError(wrapperId, 'Khong co duong dan anh.');
+      return;
+    }
+
+    var cleanPath = normalizePath(relativePath);
+    var urls = buildUrls(cleanPath);
+    tryImage(wrapperId, urls, 0);
+  }
+
+  function tryImage(wrapperId, urls, idx) {
+    if (idx >= urls.length) {
+      var fname = urls[0].split('/').pop();
+      showImageError(wrapperId, 'Khong tim thay anh: ' + fname);
+      return;
+    }
+
+    var img = new Image();
+    img.onload = function () {
+      var wrapper = document.getElementById(wrapperId);
+      wrapper.innerHTML = '';
+      img.style.cursor = 'pointer';
+      img.onclick = function () {
+        toggleSelect(wrapperId === 'wrapper-a' ? 'A' : 'B');
+      };
+      wrapper.appendChild(img);
+    };
+
+    img.onerror = function () {
+      tryImage(wrapperId, urls, idx + 1);
+    };
+
+    img.src = urls[idx];
+  }
+
+  function showImageError(wrapperId, msg) {
+    document.getElementById(wrapperId).innerHTML =
+      '<div class="error-msg">&#9888; ' + msg + '</div>';
+  }
+
+  // ── Selection ────────────────────────────────────────────────────────────────
+  function toggleSelect(side) {
+    selected = (selected === side) ? null : side;
+    document.getElementById('card-a').classList.remove('selected');
+    document.getElementById('card-b').classList.remove('selected');
+    if (selected) {
+      var cardId = side === 'A' ? 'card-a' : 'card-b';
+      document.getElementById(cardId).classList.add('selected');
+    }
+  }
+
+  // ── Choice ───────────────────────────────────────────────────────────────────
+  function choose(action) {
+    if (action !== 'skip' && action !== 'equal' && !selected) {
+      showError('Vui long chon anh A hoac B truoc.');
+      return;
+    }
+
+    var pair = pairs[currentIndex];
+    var result = {
+      pair_id: pair.pair_id || (currentIndex + 1),
+      identity_A: pair.identity_A,
+      identity_B: pair.identity_B,
+      frame_A: pair.frame_A,
+      frame_B: pair.frame_B,
+      same_identity: pair.same_identity,
+      choice: action,
+      timestamp: new Date().toISOString()
+    };
+
+    results.push(result);
+    saveResults();
+
+    currentIndex++;
+    updateProgress();
+    loadCurrentPair();
+  }
+
+  // ── Persistence ──────────────────────────────────────────────────────────────
+  function saveResults() {
+    try {
+      localStorage.setItem(RESULT_KEY, JSON.stringify(results));
+      document.getElementById('save-status').textContent =
+        'Da luu ' + results.length + ' ket qua';
+    } catch (err) {
+      showError('Loi luu: ' + err.message);
+    }
+  }
+
+  function updateProgress() {
+    var totalDone = results.length;
+    var totalAll = totalDone + pairs.length;
+    var pct = totalAll > 0 ? Math.round((totalDone / totalAll) * 100) : 0;
+    document.getElementById('progress-text').textContent =
+      totalDone + ' / ' + totalAll + ' da hoan thanh';
+    document.getElementById('progress-pct').textContent = pct + '%';
+    document.getElementById('progress-bar').style.width = pct + '%';
+  }
+
+  // ── Completion ───────────────────────────────────────────────────────────────
+  function showCompletion() {
+    document.getElementById('image-container').style.display = 'none';
+    document.getElementById('buttons').style.display = 'none';
+    document.getElementById('identity-info').style.display = 'none';
+    document.getElementById('progress-wrap').style.display = 'none';
+    document.getElementById('save-status').style.display = 'none';
+
+    var blob = new Blob([JSON.stringify(results, null, 2)], { type: 'application/json' });
+    document.getElementById('download-link').href = URL.createObjectURL(blob);
+    document.getElementById('completed-count').textContent = results.length;
+    document.getElementById('completion').style.display = 'block';
+  }
+
+  // ── Error banner ──────────────────────────────────────────────────────────────
+  var errorTimer = null;
+  function showError(msg) {
+    var banner = document.getElementById('error-banner');
+    banner.textContent = msg;
+    banner.style.display = 'block';
+    if (errorTimer) clearTimeout(errorTimer);
+    errorTimer = setTimeout(function () { banner.style.display = 'none'; }, 4000);
+  }
+
+  // ── Button bindings ───────────────────────────────────────────────────────────
+  document.getElementById('btn-choose-a').addEventListener('click', function () { choose('A'); });
+  document.getElementById('btn-choose-b').addEventListener('click', function () { choose('B'); });
+  document.getElementById('btn-equal').addEventListener('click', function () { choose('equal'); });
+  document.getElementById('btn-skip').addEventListener('click', function () { choose('skip'); });
+
+  // ── Keyboard shortcuts ────────────────────────────────────────────────────────
+  document.addEventListener('keydown', function (e) {
+    var tag = e.target.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    switch (e.key) {
+      case 'a': case 'A': case '1': toggleSelect('A'); break;
+      case 'b': case 'B': case '2': toggleSelect('B'); break;
+      case 'Enter': if (selected) choose(selected); break;
+      case 'e': case 'E': choose('equal'); break;
+      case 's': case 'S': choose('skip'); break;
+    }
+  });
+
+  // ── Start ────────────────────────────────────────────────────────────────────
+  init();
+})();
+</script>
+</body>
+</html>

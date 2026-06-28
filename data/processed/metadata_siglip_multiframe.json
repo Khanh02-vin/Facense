@@ -1,0 +1,6 @@
+{
+  "n_frames_per_video": 3,
+  "n_identities": 178,
+  "n_total": 519,
+  "embedding_dim": 1
+}

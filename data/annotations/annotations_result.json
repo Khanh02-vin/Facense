@@ -1,0 +1,1012 @@
+[
+  {
+    "pair_id": 1,
+    "identity_A": "Hamabe Minami",
+    "identity_B": "Bạch Băng",
+    "frame_A": "frames/Hamabe Minami_0.jpg",
+    "frame_B": "frames/Bạch Băng_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:01:02.581Z"
+  },
+  {
+    "pair_id": 1,
+    "identity_A": "Tao Tsuchiya",
+    "identity_B": "Tao Tsuchiya",
+    "frame_A": "frames/Tao Tsuchiya_0.jpg",
+    "frame_B": "frames/Tao Tsuchiya_0.jpg",
+    "same_identity": true,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:03:05.285Z"
+  },
+  {
+    "pair_id": 1,
+    "identity_A": "Hamabe Minami",
+    "identity_B": "Bạch Băng",
+    "frame_A": "frames/Hamabe Minami_0.jpg",
+    "frame_B": "frames/Bạch Băng_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:07:55.892Z"
+  },
+  {
+    "pair_id": 2,
+    "identity_A": "Địch Lệ Nhiệt Ba",
+    "identity_B": "Địch Lệ Nhiệt Ba",
+    "frame_A": "frames/Địch Lệ Nhiệt Ba_0.jpg",
+    "frame_B": "frames/Địch Lệ Nhiệt Ba_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:07:58.604Z"
+  },
+  {
+    "pair_id": 3,
+    "identity_A": "Thẩm My Trang",
+    "identity_B": "Imada Mio",
+    "frame_A": "frames/Thẩm My Trang_0.jpg",
+    "frame_B": "frames/Imada Mio_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:08:02.364Z"
+  },
+  {
+    "pair_id": 4,
+    "identity_A": "Matsuzaka Keiko",
+    "identity_B": "Alesandrova Marina",
+    "frame_A": "frames/Matsuzaka Keiko_0.jpg",
+    "frame_B": "frames/Alesandrova Marina_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:08:05.676Z"
+  },
+  {
+    "pair_id": 5,
+    "identity_A": "Trương Miểu Di",
+    "identity_B": "Quan Hiểu Đồng",
+    "frame_A": "frames/Trương Miểu Di_0.jpg",
+    "frame_B": "frames/Quan Hiểu Đồng_0.jpg",
+    "same_identity": false,
+    "choice": "B",
+    "timestamp": "2026-06-23T02:08:09.549Z"
+  },
+  {
+    "pair_id": 6,
+    "identity_A": "Nguyen Ngoc Huyen",
+    "identity_B": "Elina Karinova",
+    "frame_A": "frames/Nguyen Ngoc Huyen_0.jpg",
+    "frame_B": "frames/Elina Karinova_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:08:12.244Z"
+  },
+  {
+    "pair_id": 7,
+    "identity_A": "Ozawa Mayu",
+    "identity_B": "Cổ Lực Na Trát",
+    "frame_A": "frames/Ozawa Mayu_0.jpg",
+    "frame_B": "frames/Cổ Lực Na Trát_0.jpg",
+    "same_identity": false,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:08:17.612Z"
+  },
+  {
+    "pair_id": 8,
+    "identity_A": "Nagano Mei",
+    "identity_B": "Phương Lôi",
+    "frame_A": "frames/Nagano Mei_0.jpg",
+    "frame_B": "frames/Phương Lôi_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:08:23.324Z"
+  },
+  {
+    "pair_id": 9,
+    "identity_A": "Nakamori Akina",
+    "identity_B": "Trương Vũ Kỳ",
+    "frame_A": "frames/Nakamori Akina_0.jpg",
+    "frame_B": "frames/Trương Vũ Kỳ_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:08:25.212Z"
+  },
+  {
+    "pair_id": 10,
+    "identity_A": "Hong Hwa-yeon",
+    "identity_B": "Hong Hwa-yeon",
+    "frame_A": "frames/Hong Hwa-yeon_0.jpg",
+    "frame_B": "frames/Hong Hwa-yeon_0.jpg",
+    "same_identity": true,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:08:28.716Z"
+  },
+  {
+    "pair_id": 11,
+    "identity_A": "Han Hyo-joo",
+    "identity_B": "Han Chae-young",
+    "frame_A": "frames/Han Hyo-joo_0.jpg",
+    "frame_B": "frames/Han Chae-young_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:08:32.717Z"
+  },
+  {
+    "pair_id": 12,
+    "identity_A": "Chalize Theron",
+    "identity_B": "Chalize Theron",
+    "frame_A": "frames/Chalize Theron_0.jpg",
+    "frame_B": "frames/Chalize Theron_0.jpg",
+    "same_identity": true,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:08:34.644Z"
+  },
+  {
+    "pair_id": 13,
+    "identity_A": "Ân Đào",
+    "identity_B": "Ishihara Satomi",
+    "frame_A": "frames/Ân Đào_0.jpg",
+    "frame_B": "frames/Ishihara Satomi_0.jpg",
+    "same_identity": false,
+    "choice": "B",
+    "timestamp": "2026-06-23T02:08:38.908Z"
+  },
+  {
+    "pair_id": 14,
+    "identity_A": "Trương Bá Chi",
+    "identity_B": "Trương Bá Chi",
+    "frame_A": "frames/Trương Bá Chi_0.jpg",
+    "frame_B": "frames/Trương Bá Chi_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:08:42.796Z"
+  },
+  {
+    "pair_id": 15,
+    "identity_A": "Park Ha-sun",
+    "identity_B": "Park Ha-sun",
+    "frame_A": "frames/Park Ha-sun_0.jpg",
+    "frame_B": "frames/Park Ha-sun_0.jpg",
+    "same_identity": true,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:08:46.204Z"
+  },
+  {
+    "pair_id": 16,
+    "identity_A": "Riho Takada",
+    "identity_B": "Chalize Theron",
+    "frame_A": "frames/Riho Takada_0.jpg",
+    "frame_B": "frames/Chalize Theron_0.jpg",
+    "same_identity": false,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:08:47.964Z"
+  },
+  {
+    "pair_id": 17,
+    "identity_A": "Monica Belluci",
+    "identity_B": "Lâm Chí Linh",
+    "frame_A": "frames/Monica Belluci_0.jpg",
+    "frame_B": "frames/Lâm Chí Linh_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:08:52.868Z"
+  },
+  {
+    "pair_id": 18,
+    "identity_A": "Vương Ảnh Lộ",
+    "identity_B": "Mai Davika",
+    "frame_A": "frames/Vương Ảnh Lộ_0.jpg",
+    "frame_B": "frames/Mai Davika_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:08:56.108Z"
+  },
+  {
+    "pair_id": 19,
+    "identity_A": "Lily Collins",
+    "identity_B": "Can Đình ĐÌnh",
+    "frame_A": "frames/Lily Collins_0.jpg",
+    "frame_B": "frames/Can Đình ĐÌnh_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:08:59.341Z"
+  },
+  {
+    "pair_id": 20,
+    "identity_A": "Heidy Larmar",
+    "identity_B": "Kudo Shizuka",
+    "frame_A": "frames/Heidy Larmar_0.jpg",
+    "frame_B": "frames/Kudo Shizuka_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:09:03.372Z"
+  },
+  {
+    "pair_id": 21,
+    "identity_A": "Matsuzaka Keiko",
+    "identity_B": "Trương Vũ Kỳ",
+    "frame_A": "frames/Matsuzaka Keiko_0.jpg",
+    "frame_B": "frames/Trương Vũ Kỳ_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:09:05.596Z"
+  },
+  {
+    "pair_id": 22,
+    "identity_A": "Châu Huệ Mẫn",
+    "identity_B": "Tần Lam",
+    "frame_A": "frames/Châu Huệ Mẫn_0.jpg",
+    "frame_B": "frames/Tần Lam_0.jpg",
+    "same_identity": false,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:09:09.236Z"
+  },
+  {
+    "pair_id": 23,
+    "identity_A": "Alesandrova Marina",
+    "identity_B": "Trần Hồng",
+    "frame_A": "frames/Alesandrova Marina_0.jpg",
+    "frame_B": "frames/Trần Hồng_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:09:11.476Z"
+  },
+  {
+    "pair_id": 24,
+    "identity_A": "Imoto Ayaka",
+    "identity_B": "Imoto Ayaka",
+    "frame_A": "frames/Imoto Ayaka_0.jpg",
+    "frame_B": "frames/Imoto Ayaka_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:09:13.124Z"
+  },
+  {
+    "pair_id": 25,
+    "identity_A": "Keira Knightkey",
+    "identity_B": "Keira Knightkey",
+    "frame_A": "frames/Keira Knightkey_0.jpg",
+    "frame_B": "frames/Keira Knightkey_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:09:15.252Z"
+  },
+  {
+    "pair_id": 26,
+    "identity_A": "Hoshi Moeka",
+    "identity_B": "Miyoshi Ayaka",
+    "frame_A": "frames/Hoshi Moeka_0.jpg",
+    "frame_B": "frames/Miyoshi Ayaka_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:09:18.108Z"
+  },
+  {
+    "pair_id": 27,
+    "identity_A": "Đại Lộ Oa",
+    "identity_B": "Đại Lộ Oa",
+    "frame_A": "frames/Đại Lộ Oa_0.jpg",
+    "frame_B": "frames/Đại Lộ Oa_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:09:19.437Z"
+  },
+  {
+    "pair_id": 28,
+    "identity_A": "Vương Tổ Hiền",
+    "identity_B": "Lý Gia Hân",
+    "frame_A": "frames/Vương Tổ Hiền_0.jpg",
+    "frame_B": "frames/Lý Gia Hân_0.jpg",
+    "same_identity": false,
+    "choice": "B",
+    "timestamp": "2026-06-23T02:09:21.764Z"
+  },
+  {
+    "pair_id": 29,
+    "identity_A": "Hoài Thu",
+    "identity_B": "Hoài Thu",
+    "frame_A": "frames/Hoài Thu_0.jpg",
+    "frame_B": "frames/Hoài Thu_0.jpg",
+    "same_identity": true,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:09:25.980Z"
+  },
+  {
+    "pair_id": 30,
+    "identity_A": "Trương Miểu Di",
+    "identity_B": "Natsukawa Yui",
+    "frame_A": "frames/Trương Miểu Di_0.jpg",
+    "frame_B": "frames/Natsukawa Yui_0.jpg",
+    "same_identity": false,
+    "choice": "B",
+    "timestamp": "2026-06-23T02:09:29.972Z"
+  },
+  {
+    "pair_id": 31,
+    "identity_A": "Vạn Thiến",
+    "identity_B": "Vương Tử Thuần",
+    "frame_A": "frames/Vạn Thiến_0.jpg",
+    "frame_B": "frames/Vương Tử Thuần_0.jpg",
+    "same_identity": false,
+    "choice": "B",
+    "timestamp": "2026-06-23T02:09:33.445Z"
+  },
+  {
+    "pair_id": 32,
+    "identity_A": "Mai Davika",
+    "identity_B": "Elle Fanning",
+    "frame_A": "frames/Mai Davika_0.jpg",
+    "frame_B": "frames/Elle Fanning_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:09:35.092Z"
+  },
+  {
+    "pair_id": 33,
+    "identity_A": "Park Jihyun",
+    "identity_B": "Lam Duan",
+    "frame_A": "frames/Park Jihyun_0.jpg",
+    "frame_B": "frames/Lam Duan_0.jpg",
+    "same_identity": false,
+    "choice": "B",
+    "timestamp": "2026-06-23T02:09:39.380Z"
+  },
+  {
+    "pair_id": 34,
+    "identity_A": "Thu Hà",
+    "identity_B": "Angel Baby",
+    "frame_A": "frames/Thu Hà_0.jpg",
+    "frame_B": "frames/Angel Baby_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:09:44.300Z"
+  },
+  {
+    "pair_id": 35,
+    "identity_A": "Elle Fanning",
+    "identity_B": "Elle Fanning",
+    "frame_A": "frames/Elle Fanning_0.jpg",
+    "frame_B": "frames/Elle Fanning_0.jpg",
+    "same_identity": true,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:09:45.772Z"
+  },
+  {
+    "pair_id": 36,
+    "identity_A": "Bạch Băng",
+    "identity_B": "Tanakashi Rin",
+    "frame_A": "frames/Bạch Băng_0.jpg",
+    "frame_B": "frames/Tanakashi Rin_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:09:48.020Z"
+  },
+  {
+    "pair_id": 37,
+    "identity_A": "Wakana Matsumoto",
+    "identity_B": "Nghê Ni",
+    "frame_A": "frames/Wakana Matsumoto_0.jpg",
+    "frame_B": "frames/Nghê Ni_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:09:51.764Z"
+  },
+  {
+    "pair_id": 38,
+    "identity_A": "Park Jihyun",
+    "identity_B": "Tưởng Hân",
+    "frame_A": "frames/Park Jihyun_0.jpg",
+    "frame_B": "frames/Tưởng Hân_0.jpg",
+    "same_identity": false,
+    "choice": "B",
+    "timestamp": "2026-06-23T02:09:56.845Z"
+  },
+  {
+    "pair_id": 39,
+    "identity_A": "Trương Tịnh Nghi",
+    "identity_B": "Trương Tịnh Nghi",
+    "frame_A": "frames/Trương Tịnh Nghi_0.jpg",
+    "frame_B": "frames/Trương Tịnh Nghi_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:09:58.244Z"
+  },
+  {
+    "pair_id": 40,
+    "identity_A": "Toda Erika",
+    "identity_B": "Toda Erika",
+    "frame_A": "frames/Toda Erika_0.jpg",
+    "frame_B": "frames/Toda Erika_0.jpg",
+    "same_identity": true,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:10:00.132Z"
+  },
+  {
+    "pair_id": 41,
+    "identity_A": "Anna Chipovskaya",
+    "identity_B": "Chương Nhược Nam",
+    "frame_A": "frames/Anna Chipovskaya_0.jpg",
+    "frame_B": "frames/Chương Nhược Nam_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:03.004Z"
+  },
+  {
+    "pair_id": 42,
+    "identity_A": "Tưởng Cần Cần",
+    "identity_B": "Cate Blanchet",
+    "frame_A": "frames/Tưởng Cần Cần_0.jpg",
+    "frame_B": "frames/Cate Blanchet_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:10:04.932Z"
+  },
+  {
+    "pair_id": 43,
+    "identity_A": "Bao Thượng Ân",
+    "identity_B": "Lam Duan",
+    "frame_A": "frames/Bao Thượng Ân_0.jpg",
+    "frame_B": "frames/Lam Duan_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:07.036Z"
+  },
+  {
+    "pair_id": 44,
+    "identity_A": "Vương Tổ Hiền",
+    "identity_B": "Park Jihyun",
+    "frame_A": "frames/Vương Tổ Hiền_0.jpg",
+    "frame_B": "frames/Park Jihyun_0.jpg",
+    "same_identity": false,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:10:09.636Z"
+  },
+  {
+    "pair_id": 45,
+    "identity_A": "Elle Fanning",
+    "identity_B": "Elle Fanning",
+    "frame_A": "frames/Elle Fanning_0.jpg",
+    "frame_B": "frames/Elle Fanning_0.jpg",
+    "same_identity": true,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:10:10.869Z"
+  },
+  {
+    "pair_id": 46,
+    "identity_A": "Lý Gia Hân",
+    "identity_B": "Lý Gia Hân",
+    "frame_A": "frames/Lý Gia Hân_0.jpg",
+    "frame_B": "frames/Lý Gia Hân_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:12.140Z"
+  },
+  {
+    "pair_id": 47,
+    "identity_A": "Trương Miểu Di",
+    "identity_B": "Triệu Kim Mạch",
+    "frame_A": "frames/Trương Miểu Di_0.jpg",
+    "frame_B": "frames/Triệu Kim Mạch_0.jpg",
+    "same_identity": false,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:10:15.029Z"
+  },
+  {
+    "pair_id": 48,
+    "identity_A": "Bao Thượng Ân",
+    "identity_B": "Imada Mio",
+    "frame_A": "frames/Bao Thượng Ân_0.jpg",
+    "frame_B": "frames/Imada Mio_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:10:17.116Z"
+  },
+  {
+    "pair_id": 49,
+    "identity_A": "Triệu Lệ Dĩnh",
+    "identity_B": "Jang Won-young",
+    "frame_A": "frames/Triệu Lệ Dĩnh_0.jpg",
+    "frame_B": "frames/Jang Won-young_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:19.444Z"
+  },
+  {
+    "pair_id": 50,
+    "identity_A": "Sasaki Nozomi",
+    "identity_B": "Trịnh Sảng",
+    "frame_A": "frames/Sasaki Nozomi_0.jpg",
+    "frame_B": "frames/Trịnh Sảng_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:21.308Z"
+  },
+  {
+    "pair_id": 51,
+    "identity_A": "Choi Ye-won",
+    "identity_B": "Choi Ye-won",
+    "frame_A": "frames/Choi Ye-won_0.jpg",
+    "frame_B": "frames/Choi Ye-won_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:22.700Z"
+  },
+  {
+    "pair_id": 52,
+    "identity_A": "vương sở nhiên",
+    "identity_B": "vương sở nhiên",
+    "frame_A": "frames/vương sở nhiên_0.jpg",
+    "frame_B": "frames/vương sở nhiên_0.jpg",
+    "same_identity": true,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:10:23.852Z"
+  },
+  {
+    "pair_id": 53,
+    "identity_A": "Diana Kruger",
+    "identity_B": "Diana Kruger",
+    "frame_A": "frames/Diana Kruger_0.jpg",
+    "frame_B": "frames/Diana Kruger_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:26.149Z"
+  },
+  {
+    "pair_id": 54,
+    "identity_A": "Phuong Anh Dao",
+    "identity_B": "Jang Won-young",
+    "frame_A": "frames/Phuong Anh Dao_0.jpg",
+    "frame_B": "frames/Jang Won-young_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:28.709Z"
+  },
+  {
+    "pair_id": 55,
+    "identity_A": "Italy Monoca",
+    "identity_B": "Bae Suzy",
+    "frame_A": "frames/Italy Monoca_0.jpg",
+    "frame_B": "frames/Bae Suzy_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:33.108Z"
+  },
+  {
+    "pair_id": 56,
+    "identity_A": "Deva Cassel",
+    "identity_B": "Yui Asakura",
+    "frame_A": "frames/Deva Cassel_0.jpg",
+    "frame_B": "frames/Yui Asakura_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:34.612Z"
+  },
+  {
+    "pair_id": 57,
+    "identity_A": "Dương Tuyết",
+    "identity_B": "Tần Lam",
+    "frame_A": "frames/Dương Tuyết_0.jpg",
+    "frame_B": "frames/Tần Lam_0.jpg",
+    "same_identity": false,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:10:38.324Z"
+  },
+  {
+    "pair_id": 58,
+    "identity_A": "Aoi Yu",
+    "identity_B": "Aoi Yu",
+    "frame_A": "frames/Aoi Yu_0.jpg",
+    "frame_B": "frames/Aoi Yu_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:39.804Z"
+  },
+  {
+    "pair_id": 59,
+    "identity_A": "Điền Hi Vi",
+    "identity_B": "Điền Hi Vi",
+    "frame_A": "frames/Điền Hi Vi_0.jpg",
+    "frame_B": "frames/Điền Hi Vi_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:41.804Z"
+  },
+  {
+    "pair_id": 60,
+    "identity_A": "Cate Blanchet",
+    "identity_B": "Catherine zeta jones",
+    "frame_A": "frames/Cate Blanchet_0.jpg",
+    "frame_B": "frames/Catherine zeta jones_0.jpg",
+    "same_identity": false,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:10:43.996Z"
+  },
+  {
+    "pair_id": 61,
+    "identity_A": "Hoshi Moeka",
+    "identity_B": "Thu Hà",
+    "frame_A": "frames/Hoshi Moeka_0.jpg",
+    "frame_B": "frames/Thu Hà_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:45.644Z"
+  },
+  {
+    "pair_id": 62,
+    "identity_A": "Karina",
+    "identity_B": "Tanaka Yuko",
+    "frame_A": "frames/Karina_0.jpg",
+    "frame_B": "frames/Tanaka Yuko_0.jpg",
+    "same_identity": false,
+    "choice": "B",
+    "timestamp": "2026-06-23T02:10:47.500Z"
+  },
+  {
+    "pair_id": 63,
+    "identity_A": "Miyoshi Ayaka",
+    "identity_B": "Miyoshi Ayaka",
+    "frame_A": "frames/Miyoshi Ayaka_0.jpg",
+    "frame_B": "frames/Miyoshi Ayaka_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:49.028Z"
+  },
+  {
+    "pair_id": 64,
+    "identity_A": "Blake Lively",
+    "identity_B": "Lâm Chí Linh",
+    "frame_A": "frames/Blake Lively_0.jpg",
+    "frame_B": "frames/Lâm Chí Linh_0.jpg",
+    "same_identity": false,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:10:52.364Z"
+  },
+  {
+    "pair_id": 65,
+    "identity_A": "Lam Duan",
+    "identity_B": "Italy Monoca",
+    "frame_A": "frames/Lam Duan_0.jpg",
+    "frame_B": "frames/Italy Monoca_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:10:57.965Z"
+  },
+  {
+    "pair_id": 66,
+    "identity_A": "Diana Kruger",
+    "identity_B": "Nakamori Akina",
+    "frame_A": "frames/Diana Kruger_0.jpg",
+    "frame_B": "frames/Nakamori Akina_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:10:59.644Z"
+  },
+  {
+    "pair_id": 67,
+    "identity_A": "Bae Suzy",
+    "identity_B": "Trương Dư Hi",
+    "frame_A": "frames/Bae Suzy_0.jpg",
+    "frame_B": "frames/Trương Dư Hi_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:01.244Z"
+  },
+  {
+    "pair_id": 68,
+    "identity_A": "Jennifer Connely",
+    "identity_B": "Thẩm My Trang",
+    "frame_A": "frames/Jennifer Connely_0.jpg",
+    "frame_B": "frames/Thẩm My Trang_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:03.188Z"
+  },
+  {
+    "pair_id": 69,
+    "identity_A": "Trịnh Sảng",
+    "identity_B": "Trịnh Sảng",
+    "frame_A": "frames/Trịnh Sảng_0.jpg",
+    "frame_B": "frames/Trịnh Sảng_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:04.436Z"
+  },
+  {
+    "pair_id": 70,
+    "identity_A": "Elina Karinova",
+    "identity_B": "Bae Suzy",
+    "frame_A": "frames/Elina Karinova_0.jpg",
+    "frame_B": "frames/Bae Suzy_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:06.109Z"
+  },
+  {
+    "pair_id": 71,
+    "identity_A": "Hoshi Moeka",
+    "identity_B": "Vạn Thiến",
+    "frame_A": "frames/Hoshi Moeka_0.jpg",
+    "frame_B": "frames/Vạn Thiến_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:11:08.188Z"
+  },
+  {
+    "pair_id": 72,
+    "identity_A": "Ashley Greene",
+    "identity_B": "Ashley Greene",
+    "frame_A": "frames/Ashley Greene_0.jpg",
+    "frame_B": "frames/Ashley Greene_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:09.628Z"
+  },
+  {
+    "pair_id": 73,
+    "identity_A": "Fujiyoshi Karin",
+    "identity_B": "Mạnh Tử Nghĩa",
+    "frame_A": "frames/Fujiyoshi Karin_0.jpg",
+    "frame_B": "frames/Mạnh Tử Nghĩa_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:11.476Z"
+  },
+  {
+    "pair_id": 74,
+    "identity_A": "Tina Tamshiro",
+    "identity_B": "Winona Ryder",
+    "frame_A": "frames/Tina Tamshiro_0.jpg",
+    "frame_B": "frames/Winona Ryder_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:14.268Z"
+  },
+  {
+    "pair_id": 75,
+    "identity_A": "Ashley Greene",
+    "identity_B": "Ashley Greene",
+    "frame_A": "frames/Ashley Greene_0.jpg",
+    "frame_B": "frames/Ashley Greene_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:15.652Z"
+  },
+  {
+    "pair_id": 76,
+    "identity_A": "Kang Hye Won",
+    "identity_B": "Hirose Suzu",
+    "frame_A": "frames/Kang Hye Won_0.jpg",
+    "frame_B": "frames/Hirose Suzu_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:18.564Z"
+  },
+  {
+    "pair_id": 77,
+    "identity_A": "Tần Lam",
+    "identity_B": "Tần Lam",
+    "frame_A": "frames/Tần Lam_0.jpg",
+    "frame_B": "frames/Tần Lam_0.jpg",
+    "same_identity": true,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:11:21.396Z"
+  },
+  {
+    "pair_id": 78,
+    "identity_A": "Lưu Diệp Phi",
+    "identity_B": "Lưu Diệp Phi",
+    "frame_A": "frames/Lưu Diệp Phi_0.jpg",
+    "frame_B": "frames/Lưu Diệp Phi_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:22.804Z"
+  },
+  {
+    "pair_id": 79,
+    "identity_A": "Dương Tuyết",
+    "identity_B": "Han Chae-young",
+    "frame_A": "frames/Dương Tuyết_0.jpg",
+    "frame_B": "frames/Han Chae-young_0.jpg",
+    "same_identity": false,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:11:24.300Z"
+  },
+  {
+    "pair_id": 80,
+    "identity_A": "Mạnh Tử Nghĩa",
+    "identity_B": "Han Chae-young",
+    "frame_A": "frames/Mạnh Tử Nghĩa_0.jpg",
+    "frame_B": "frames/Han Chae-young_0.jpg",
+    "same_identity": false,
+    "choice": "A",
+    "timestamp": "2026-06-23T02:11:26.500Z"
+  },
+  {
+    "pair_id": 81,
+    "identity_A": "Kim Claudia",
+    "identity_B": "Kim Claudia",
+    "frame_A": "frames/Kim Claudia_0.jpg",
+    "frame_B": "frames/Kim Claudia_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:27.725Z"
+  },
+  {
+    "pair_id": 82,
+    "identity_A": "Kim Hae Ri",
+    "identity_B": "Yui Asakura",
+    "frame_A": "frames/Kim Hae Ri_0.jpg",
+    "frame_B": "frames/Yui Asakura_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:30.572Z"
+  },
+  {
+    "pair_id": 83,
+    "identity_A": "Park Ha-sun",
+    "identity_B": "Kim Jung Won",
+    "frame_A": "frames/Park Ha-sun_0.jpg",
+    "frame_B": "frames/Kim Jung Won_0.jpg",
+    "same_identity": false,
+    "choice": "B",
+    "timestamp": "2026-06-23T02:11:33.412Z"
+  },
+  {
+    "pair_id": 84,
+    "identity_A": "Thầm Nguyệt",
+    "identity_B": "Choi Ye-won",
+    "frame_A": "frames/Thầm Nguyệt_0.jpg",
+    "frame_B": "frames/Choi Ye-won_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:34.996Z"
+  },
+  {
+    "pair_id": 85,
+    "identity_A": "Lưu Hạo Tồn",
+    "identity_B": "Ikeda Eliza",
+    "frame_A": "frames/Lưu Hạo Tồn_0.jpg",
+    "frame_B": "frames/Ikeda Eliza_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:36.820Z"
+  },
+  {
+    "pair_id": 86,
+    "identity_A": "Trương Bá Chi",
+    "identity_B": "Quan Chi Lâm",
+    "frame_A": "frames/Trương Bá Chi_0.jpg",
+    "frame_B": "frames/Quan Chi Lâm_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:38.132Z"
+  },
+  {
+    "pair_id": 87,
+    "identity_A": "Wakana Matsumoto",
+    "identity_B": "Quan Chi Lâm",
+    "frame_A": "frames/Wakana Matsumoto_0.jpg",
+    "frame_B": "frames/Quan Chi Lâm_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:39.684Z"
+  },
+  {
+    "pair_id": 88,
+    "identity_A": "Kim Tae Hee",
+    "identity_B": "Kim Tae Hee",
+    "frame_A": "frames/Kim Tae Hee_0.jpg",
+    "frame_B": "frames/Kim Tae Hee_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:40.900Z"
+  },
+  {
+    "pair_id": 89,
+    "identity_A": "Diana Kruger",
+    "identity_B": "Jang Won-young",
+    "frame_A": "frames/Diana Kruger_0.jpg",
+    "frame_B": "frames/Jang Won-young_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:42.660Z"
+  },
+  {
+    "pair_id": 90,
+    "identity_A": "Karina",
+    "identity_B": "Sana",
+    "frame_A": "frames/Karina_0.jpg",
+    "frame_B": "frames/Sana_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:44.140Z"
+  },
+  {
+    "pair_id": 91,
+    "identity_A": "Imada Mio",
+    "identity_B": "Imada Mio",
+    "frame_A": "frames/Imada Mio_0.jpg",
+    "frame_B": "frames/Imada Mio_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:46.324Z"
+  },
+  {
+    "pair_id": 92,
+    "identity_A": "Ikeda Eliza",
+    "identity_B": "Ikeda Eliza",
+    "frame_A": "frames/Ikeda Eliza_0.jpg",
+    "frame_B": "frames/Ikeda Eliza_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:47.412Z"
+  },
+  {
+    "pair_id": 93,
+    "identity_A": "Cúc Tịch Y",
+    "identity_B": "Đại Lộ Oa",
+    "frame_A": "frames/Cúc Tịch Y_0.jpg",
+    "frame_B": "frames/Đại Lộ Oa_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:48.876Z"
+  },
+  {
+    "pair_id": 94,
+    "identity_A": "Cate Blanchet",
+    "identity_B": "Cate Blanchet",
+    "frame_A": "frames/Cate Blanchet_0.jpg",
+    "frame_B": "frames/Cate Blanchet_0.jpg",
+    "same_identity": true,
+    "choice": "skip",
+    "timestamp": "2026-06-23T02:11:50.636Z"
+  },
+  {
+    "pair_id": 95,
+    "identity_A": "Hoshi Moeka",
+    "identity_B": "Triệu Lệ Dĩnh",
+    "frame_A": "frames/Hoshi Moeka_0.jpg",
+    "frame_B": "frames/Triệu Lệ Dĩnh_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:52.780Z"
+  },
+  {
+    "pair_id": 96,
+    "identity_A": "Alexandra Daddario",
+    "identity_B": "Can Đình ĐÌnh",
+    "frame_A": "frames/Alexandra Daddario_0.jpg",
+    "frame_B": "frames/Can Đình ĐÌnh_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:54.612Z"
+  },
+  {
+    "pair_id": 97,
+    "identity_A": "Tanakashi Rin",
+    "identity_B": "Tanakashi Rin",
+    "frame_A": "frames/Tanakashi Rin_0.jpg",
+    "frame_B": "frames/Tanakashi Rin_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:55.668Z"
+  },
+  {
+    "pair_id": 98,
+    "identity_A": "Thu Hà",
+    "identity_B": "Deva Cassel",
+    "frame_A": "frames/Thu Hà_0.jpg",
+    "frame_B": "frames/Deva Cassel_0.jpg",
+    "same_identity": false,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:57.773Z"
+  },
+  {
+    "pair_id": 99,
+    "identity_A": "Alexandra Daddario",
+    "identity_B": "Alexandra Daddario",
+    "frame_A": "frames/Alexandra Daddario_0.jpg",
+    "frame_B": "frames/Alexandra Daddario_0.jpg",
+    "same_identity": true,
+    "choice": "equal",
+    "timestamp": "2026-06-23T02:11:59.060Z"
+  }
+]

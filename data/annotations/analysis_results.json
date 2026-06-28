@@ -1,0 +1,250 @@
+{
+  "n_annotations": 101,
+  "n_valid": 81,
+  "n_skipped": 20,
+  "choice_distribution": {
+    "equal": 58,
+    "A": 14,
+    "B": 9
+  },
+  "n_edges": 23,
+  "n_identities": 40,
+  "rankings": [
+    {
+      "name": "Nagano Mei",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Mai Davika",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Lam Duan",
+      "wins": 2,
+      "losses": 0,
+      "total": 2,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Alesandrova Marina",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Thẩm My Trang",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Tưởng Hân",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Han Hyo-joo",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Bao Thượng Ân",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Vương Tử Thuần",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Monica Belluci",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Tưởng Cần Cần",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Kim Jung Won",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Tanaka Yuko",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Thu Hà",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Wakana Matsumoto",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Quan Hiểu Đồng",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Natsukawa Yui",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Mạnh Tử Nghĩa",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Ishihara Satomi",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    },
+    {
+      "name": "Hamabe Minami",
+      "wins": 1,
+      "losses": 0,
+      "total": 1,
+      "win_rate": 1.0
+    }
+  ],
+  "edges": [
+    [
+      "Hamabe Minami",
+      "Bạch Băng"
+    ],
+    [
+      "Thẩm My Trang",
+      "Imada Mio"
+    ],
+    [
+      "Quan Hiểu Đồng",
+      "Trương Miểu Di"
+    ],
+    [
+      "Nagano Mei",
+      "Phương Lôi"
+    ],
+    [
+      "Han Hyo-joo",
+      "Han Chae-young"
+    ],
+    [
+      "Ishihara Satomi",
+      "Ân Đào"
+    ],
+    [
+      "Monica Belluci",
+      "Lâm Chí Linh"
+    ],
+    [
+      "Alesandrova Marina",
+      "Trần Hồng"
+    ],
+    [
+      "Lý Gia Hân",
+      "Vương Tổ Hiền"
+    ],
+    [
+      "Natsukawa Yui",
+      "Trương Miểu Di"
+    ],
+    [
+      "Vương Tử Thuần",
+      "Vạn Thiến"
+    ],
+    [
+      "Mai Davika",
+      "Elle Fanning"
+    ],
+    [
+      "Lam Duan",
+      "Park Jihyun"
+    ],
+    [
+      "Thu Hà",
+      "Angel Baby"
+    ],
+    [
+      "Wakana Matsumoto",
+      "Nghê Ni"
+    ],
+    [
+      "Tưởng Hân",
+      "Park Jihyun"
+    ],
+    [
+      "Tưởng Cần Cần",
+      "Cate Blanchet"
+    ],
+    [
+      "Bao Thượng Ân",
+      "Imada Mio"
+    ],
+    [
+      "Tanaka Yuko",
+      "Karina"
+    ],
+    [
+      "Lam Duan",
+      "Italy Monoca"
+    ],
+    [
+      "Hoshi Moeka",
+      "Vạn Thiến"
+    ],
+    [
+      "Mạnh Tử Nghĩa",
+      "Han Chae-young"
+    ],
+    [
+      "Kim Jung Won",
+      "Park Ha-sun"
+    ]
+  ],
+  "contradictions": [],
+  "three_cycles": []
+}

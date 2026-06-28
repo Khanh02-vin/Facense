@@ -1,0 +1,25 @@
+{
+  "experiment": {
+    "n_images": 50,
+    "n_annotators": 15,
+    "n_pairs_per_annotator": 80,
+    "true_correlation": 0.65,
+    "annotator_noise": 0.25,
+    "total_judgments": 1200
+  },
+  "rsa_result": {
+    "spearman_rho": 0.07322473011383512,
+    "spearman_p": 0.010356560511201466,
+    "pearson_r": 0.04127964323529917,
+    "pearson_p": 0.14875922604521266,
+    "kendall_tau": 0.05970166224027988,
+    "kendall_p": 0.010460643454375064,
+    "n_comparisons": 1225,
+    "interpretation": "WEAK correlation (< 0.3) - embedding space does NOT reflect human perception. Consider alternative embeddings or fine-tuning."
+  },
+  "analysis": {
+    "observed_rho": 0.07322473011383512,
+    "expected_rho": 0.65,
+    "validity": "RECONSIDER"
+  }
+}

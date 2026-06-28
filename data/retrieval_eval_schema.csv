@@ -1,0 +1,4 @@
+query_image,candidate_pool,model_top5,user_ratings,MRR,Hit@5,NDCG
+img_0100,"img_0201;img_0301;img_0401;img_0501;img_0601;img_0701;img_0801;img_0901;img_1001;img_1101","img_0201;img_0301;img_0401;img_0555;img_0606","5;4;2;1;3",0.9,1,0.85
+img_0101,"img_0150;img_0250;img_0350;img_0450;img_0550;img_0650;img_0750;img_0850;img_0950;img_1050","img_0150;img_0250;img_0450;img_0650;img_0850","4;3;4;2;3",0.75,0.8,0.72
+img_0102,"img_0105;img_0205;img_0305;img_0405;img_0505;img_0605;img_0705;img_0805;img_0905;img_1005","img_0305;img_0405;img_0505;img_0605;img_0705","3;3;4;3;3",0.6,0.6,0.58

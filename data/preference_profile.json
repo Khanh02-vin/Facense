@@ -1,0 +1,34 @@
+{
+  "user_id": "user_001",
+  "n_videos": 30,
+  "top_features": [
+    {
+      "feature": "face_clarity",
+      "percentile": 67.09728979772377
+    },
+    {
+      "feature": "eye_contact",
+      "percentile": 64.17421303375512
+    },
+    {
+      "feature": "attractiveness",
+      "percentile": 62.42574822732496
+    },
+    {
+      "feature": "smile",
+      "percentile": 57.3098519975891
+    },
+    {
+      "feature": "energy",
+      "percentile": 51.4208388368235
+    }
+  ],
+  "types": [
+    {
+      "name": "Warm & Approachable",
+      "percentage": 0.36666666666666664,
+      "characteristics": [
+        "smile: high",
+        "face_clarity: high"
+      ],
+      "size": 

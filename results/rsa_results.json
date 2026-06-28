@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "n_images": 50,
+    "n_total": 890,
+    "embedding_dim": 256,
+    "synthetic_human_noise": 0.3,
+    "note": "Human judgments are SYNTHETIC - real RSA requires human annotation"
+  },
+  "rsa_result": {
+    "spearman_rho": 0.00040613475748533785,
+    "spearman_p": 0.9886702560619278,
+    "pearson_r": -0.002030636650020535,
+    "pearson_p": 0.9433979153519584,
+    "kendall_tau": 0.0010234033204249851,
+    "kendall_p": 0.9572787998790339,
+    "n_comparisons": 1225,
+    "interpretation": "WEAK correlation (< 0.3) - embedding space does NOT reflect human perception. Consider alternative embeddings or fine-tuning."
+  },
+  "interpretation_full": "============================================================\nRSA Results - Embedding vs Human Perception\n============================================================\nSpearman rho: 0.0004 (p = 9.8867e-01)\nPearson r: -0.0020 (p = 9.4340e-01)\nKendall tau: 0.0010 (p = 9.5728e-01)\nComparisons: 1225\n\nINTERPRETATION:\nWEAK correlation (< 0.3) - embedding space does NOT reflect human perception. Consider alternative embeddings or fine-tuning.\n\n------------------------------------------------------------\nDECISION: STOP pipeline - embeddings don't reflect human perception\n============================================================"
+}

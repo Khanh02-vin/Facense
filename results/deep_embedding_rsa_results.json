@@ -1,0 +1,24 @@
+[
+  {
+    "model": "clip",
+    "n_images": 100,
+    "embedding_dim": 768,
+    "spearman_rho": 0.15052299299783656,
+    "spearman_p": 1.776238203470986e-26,
+    "pearson_r": 0.18291103903595865,
+    "pearson_p": 1.6895733991803954e-38,
+    "kendall_tau": 0.1014503370067339,
+    "interpretation": "WEAK - Some alignment"
+  },
+  {
+    "model": "siglip",
+    "n_images": 100,
+    "embedding_dim": 768,
+    "spearman_rho": 0.26394514676985364,
+    "spearman_p": 1.1052112817423325e-79,
+    "pearson_r": 0.2851136141327104,
+    "pearson_p": 3.1800532159661447e-93,
+    "kendall_tau": 0.1778746411674322,
+    "interpretation": "WEAK - Some alignment"
+  }
+]

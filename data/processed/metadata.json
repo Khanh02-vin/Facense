@@ -1,0 +1,8 @@
+{
+  "n_images": 890,
+  "embedding_dim": 256,
+  "n_identities": 178,
+  "feature_type": "color_histogram + hog",
+  "pca_components": 256,
+  "explained_variance": 0.9946867227554321
+}

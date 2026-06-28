@@ -1,0 +1,502 @@
+[
+  {
+    "identity_A": "Son Ye-jin",
+    "identity_B": "Heidy Larmar",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Yui Asakura",
+    "identity_B": "Diana Frances Spencer",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Thẩm My Trang",
+    "identity_B": "Rebecca Ferguson",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Ozawa Mayu",
+    "identity_B": "Anna Chipovskaya",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Im Jinnah",
+    "identity_B": "Hirose Suzu",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Keira Knightkey",
+    "identity_B": "Vương Ảnh Lộ",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Kim Claudia",
+    "identity_B": "Lâm Chí Linh",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Wakana Matsumoto",
+    "identity_B": "Katsumura Mika",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Komatsu Nana",
+    "identity_B": "vương sở nhiên",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Megan Fox",
+    "identity_B": "Riho Takada",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Fukada Kyoko",
+    "identity_B": "Tôn Nhất Ninh",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Phạm Băng Băng",
+    "identity_B": "Okada Nana",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Đỗ Băng Nhạn",
+    "identity_B": "Lâm Chí Linh",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Nguyen Ngoc Huyen",
+    "identity_B": "Shiraishi Sei",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Rebecca Ferguson",
+    "identity_B": "Quan Tuyết Doanh",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Katsumura Mika",
+    "identity_B": "Hoài Thu",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Hoài Thu",
+    "identity_B": "Tao Tsuchiya",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Arimura Kasumi",
+    "identity_B": "Roh Jeong Un",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Blake Lively",
+    "identity_B": "Komatsu Nana",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Toda Erika",
+    "identity_B": "Ana De Armas",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Lý Uyển Đát",
+    "identity_B": "Tống Dật",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Deguchi Natsuki",
+    "identity_B": "Lý Thấm",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Yui Asakura",
+    "identity_B": "Anya Taylor Joy",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Vương Tử Thuần",
+    "identity_B": "Trần Đức Dung",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Anna Chipovskaya",
+    "identity_B": "Ishihara Satomi",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Millie Brady",
+    "identity_B": "Từ Hy Viên",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Gisele Bunchen",
+    "identity_B": "Lâm Chí Linh",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Fukada Kyoko",
+    "identity_B": "Choi Ji Woo",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Han Hyo-joo",
+    "identity_B": "Tống Dật",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Miyazawa Rie",
+    "identity_B": "Ân Đào",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Kim Thần",
+    "identity_B": "Quan Tuyết Doanh",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Kim Tae Hee",
+    "identity_B": "Hong Hwa-yeon",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Kang Hye Won",
+    "identity_B": "Shiraishi Sei",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Seino Nana",
+    "identity_B": "Jennifer Connely",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Dương Tuyết",
+    "identity_B": "Elina Karinova",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Dương Tuyết",
+    "identity_B": "Cúc Tịch Y",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Trần Hồng",
+    "identity_B": "Mai Davika",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Nagano Mei",
+    "identity_B": "Karina",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Jang Gyu-ri",
+    "identity_B": "Ana De Armas",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Riho Takada",
+    "identity_B": "Tôn Nhất Ninh",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Daran Tasha",
+    "identity_B": "Toda Erika",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Okada Nana",
+    "identity_B": "Kim Yoo-jung",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Đỗ Băng Nhạn",
+    "identity_B": "Tưởng Cần Cần",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Dương Mịch",
+    "identity_B": "Catherine zeta jones",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Phạm Băng Băng",
+    "identity_B": "Sasaki Nozomi",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Shin Se-kyung",
+    "identity_B": "Alesandrova Marina",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Kim Yoo-jung",
+    "identity_B": "Karina",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Trần Đức Dung",
+    "identity_B": "Lee Ju Eun",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Trương Vũ Kỳ",
+    "identity_B": "Mai Davika",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Jung Eun-chae",
+    "identity_B": "Lee Ye bin",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Nicole Kidman",
+    "identity_B": "Chu Lâm",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Hirose Suzu",
+    "identity_B": "Trương Dư Hi",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Yui Asakura",
+    "identity_B": "Kudo Shizuka",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Grace Kelly",
+    "identity_B": "Roh Jeong Un",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Ishihara Satomi",
+    "identity_B": "Kim Yoo-jung",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Sasaki Nozomi",
+    "identity_B": "Lý Thấm",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Blake Lively",
+    "identity_B": "Tina Tamshiro",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Lưu Hạo Tồn",
+    "identity_B": "Tsuyu",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Chu Lâm",
+    "identity_B": "Oh Se Young",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Arimura Kasumi",
+    "identity_B": "Keira Knightkey",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Katsumura Mika",
+    "identity_B": "Hoài Thu",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Quan Hiểu Đồng",
+    "identity_B": "Nagasawa Masami",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Shiraishi Sei",
+    "identity_B": "Mao Hiểu Đồng",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Anna Chipovskaya",
+    "identity_B": "Im Jinnah",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Hirose Suzu",
+    "identity_B": "Hashimoto Kana",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Song Hye-kyo",
+    "identity_B": "Winona Ryder",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Cổ Lực Na Trát",
+    "identity_B": "Vương Ảnh Lộ",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Tina Tamshiro",
+    "identity_B": "Blake Lively",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Fukada Kyoko",
+    "identity_B": "Diana Frances Spencer",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Aragaki Yuko",
+    "identity_B": "Truong Thien Ai",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Ana De Armas",
+    "identity_B": "Heidy Larmar",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Ân Đào",
+    "identity_B": "Imoto Ayaka",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Mạnh Tử Nghĩa",
+    "identity_B": "Aragaki Yuko",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Ashahina Aya",
+    "identity_B": "Anya Taylor Joy",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Komatsu Nana",
+    "identity_B": "Ân Đào",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Aoi Yu",
+    "identity_B": "Ayaka Konno",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Lee Ju Eun",
+    "identity_B": "Kang Hye Won",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Thu Nguyen",
+    "identity_B": "Nghê Ni",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Imoto Ayaka",
+    "identity_B": "Nguyen Ngoc Huyen",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Rebecca Ferguson",
+    "identity_B": "Angel Baby",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Kim Jung Won",
+    "identity_B": "Phạm Băng Băng",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Đỗ Băng Nhạn",
+    "identity_B": "Lưu Tâm Du",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Roh Jeong Un",
+    "identity_B": "Diep Bao Ngoc",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Ashahina Aya",
+    "identity_B": "Rena Nounen",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Can Đình ĐÌnh",
+    "identity_B": "Ashahina Aya",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Lynne Frederick",
+    "identity_B": "Phuong Anh Dao",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Quan Tuyết Doanh",
+    "identity_B": "Ana De Armas",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Nagano Mei",
+    "identity_B": "Cúc Tịch Y",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Arimura Kasumi",
+    "identity_B": "Can Đình ĐÌnh",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Can Đình ĐÌnh",
+    "identity_B": "Kim Ji Won",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Arimura Kasumi",
+    "identity_B": "Tsuyu",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Jennifer Connely",
+    "identity_B": "Nagano Mei",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Tao Tsuchiya",
+    "identity_B": "Lưu Tâm Du",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Winona Ryder",
+    "identity_B": "Okada Nana",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Matsuzaka Keiko",
+    "identity_B": "Anne Hathaway",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Kim Hae Ri",
+    "identity_B": "Vạn Thiến",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Nagano Mei",
+    "identity_B": "Tưởng Hân",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Tôn Nhất Ninh",
+    "identity_B": "Thu Nguyen",
+    "position": "A_left"
+  },
+  {
+    "identity_A": "Nghê Ni",
+    "identity_B": "Dương Mịch",
+    "position": "B_left"
+  },
+  {
+    "identity_A": "Oh Se Young",
+    "identity_B": "Triệu Lệ Dĩnh",
+    "position": "B_left"
+  }
+]

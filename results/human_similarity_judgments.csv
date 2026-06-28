@@ -1,0 +1,1201 @@
+annotator_id,image_A,image_B,similarity,timestamp
+annotator_0,Grace Kelly_000,Ishihara Satomi_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Ishihara Satomi_001,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Lee Ye bin_000,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Thầm Nguyệt_003,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Deva Cassel_001,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Aoi Yu_002,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Trương Mẫn_001,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Phạm Băng Băng_000,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_0,Deva Cassel_001,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Anya Taylor Joy_002,Chu Lâm_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Asuka Saito_001,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Aoi Yu_002,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Chu Lâm_000,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Chu Lâm_000,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Chu Lâm_000,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Anna Chipovskaya_000,Anya Taylor Joy_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Kim Claudia_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Blake Lively_003,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Diana Frances Spencer_003,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Lưu Hạo Tồn_004,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_0,Dương Mịch_000,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Anya Taylor Joy_002,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_0,Anna Chipovskaya_000,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Diana Frances Spencer_003,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_0,Châu Huệ Mẫn_000,Dương Mịch_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Riho Takada_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_0,Ishihara Satomi_001,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Deva Cassel_001,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Kim Tae Hee_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Deva Cassel_001,Diana Frances Spencer_003,1.00,2026-06-22T00:00:00Z
+annotator_0,Lưu Hạo Tồn_004,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_0,Blake Lively_003,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_0,Lưu Diệp Phi_002,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Phạm Băng Băng_000,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Blake Lively_003,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Lee Ye bin_000,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Ishihara Satomi_001,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Lee Ye bin_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Kudo Mio_004,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Lynne Frederick_000,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Kim Claudia_001,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Alexandra Daddario_004,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Alexandra Daddario_004,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Gisele Bunchen_003,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Natsukawa Yui_003,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Anna Chipovskaya_000,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_0,Kudo Mio_004,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Chu Lâm_000,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Asuka Saito_001,Grace Kelly_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Asuka Saito_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Ishihara Satomi_001,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Kim Claudia_001,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Kim Claudia_001,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Phương Lôi_001,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Diệp Toàn Chân_001,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Diana Frances Spencer_003,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Asuka Saito_001,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Lily Collins_000,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Kim Tae Hee_001,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Dương Mịch_000,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Aragaki Yuko_001,Chu Lâm_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Blake Lively_003,Grace Kelly_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Lee Ju Eun_004,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Dương Mịch_000,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_0,Vạn Thiến_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Kim Claudia_001,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_0,Phương Lôi_001,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Quan Hiểu Đồng_003,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_0,Diana Frances Spencer_003,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Anya Taylor Joy_002,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Lily Collins_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Kudo Mio_004,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_0,Phương Lôi_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Thầm Nguyệt_003,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_0,Anna Chipovskaya_000,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Chu Lâm_000,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_0,Alexandra Daddario_004,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Asuka Saito_001,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_0,Lý Thấm_002,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_0,Anna Chipovskaya_000,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Blake Lively_003,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Dương Mịch_000,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Aoi Yu_002,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_1,Asuka Saito_001,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Lily Collins_000,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_1,Dương Mịch_000,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_1,Grace Kelly_000,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Diệp Toàn Chân_001,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Diana Frances Spencer_003,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_1,Trần Đức Dung_004,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Kim Tae Hee_001,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Nakama Yukie_004,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Lưu Diệp Phi_002,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Phương Lôi_001,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_1,Blake Lively_003,Ishihara Satomi_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Anya Taylor Joy_002,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_1,Hashimoto Kana_000,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_1,Hashimoto Kana_000,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Grace Kelly_000,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Alexandra Daddario_004,Blake Lively_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Jang Won-young_004,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Anya Taylor Joy_002,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_1,Grace Kelly_000,Ishihara Satomi_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Diana Frances Spencer_003,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Hashimoto Kana_000,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Hashimoto Kana_000,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_1,Tưởng Hân_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Lưu Diệp Phi_002,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Kim Tae Hee_001,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_1,Riho Takada_001,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Kim Tae Hee_001,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Deva Cassel_001,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_1,Dương Mịch_000,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Alexandra Daddario_004,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Grace Kelly_000,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_1,Hashimoto Kana_000,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Riho Takada_001,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Châu Huệ Mẫn_000,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Alexandra Daddario_004,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_1,Dương Mịch_000,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Diệp Toàn Chân_001,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_1,Lưu Hạo Tồn_004,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Anna Chipovskaya_000,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Deva Cassel_001,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Anna Chipovskaya_000,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_1,Phạm Băng Băng_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Gisele Bunchen_003,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_1,Anya Taylor Joy_002,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_1,Kim Claudia_001,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_1,Natsukawa Yui_003,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Grace Kelly_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Lưu Diệp Phi_002,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_1,Blake Lively_003,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Blake Lively_003,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Aoi Yu_002,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Diana Frances Spencer_003,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Chu Lâm_000,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Kim Tae Hee_001,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Aoi Yu_002,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Deva Cassel_001,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Lưu Hạo Tồn_004,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_1,Lý Thấm_002,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Chu Lâm_000,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Diệp Toàn Chân_001,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Tưởng Hân_001,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Dương Mịch_000,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Alexandra Daddario_004,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Anna Chipovskaya_000,Deva Cassel_001,1.00,2026-06-22T00:00:00Z
+annotator_1,Diệp Toàn Chân_001,Grace Kelly_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Hashimoto Kana_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Deva Cassel_001,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Chu Lâm_000,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_1,Thầm Nguyệt_003,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Diana Frances Spencer_003,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_1,Phạm Băng Băng_000,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_1,Kim Claudia_001,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_1,Vương Tổ Hiền_000,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Jang Won-young_004,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Asuka Saito_001,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_1,Kudo Mio_004,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Yui Asakura_003,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Diệp Toàn Chân_001,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Diệp Toàn Chân_001,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_2,Diệp Toàn Chân_001,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Anya Taylor Joy_002,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Kudo Mio_004,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Lily Collins_000,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Asuka Saito_001,Châu Huệ Mẫn_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Alexandra Daddario_004,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Gisele Bunchen_003,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Asuka Saito_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_2,Alexandra Daddario_004,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Kim Tae Hee_001,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Diệp Toàn Chân_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_2,Jang Won-young_004,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Hirose Suzu_004,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_2,Deva Cassel_001,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_2,Hirose Suzu_004,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Jang Won-young_004,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_2,Anna Chipovskaya_000,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Kudo Mio_004,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Phương Lôi_001,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Châu Huệ Mẫn_000,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Lee Ye bin_000,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Lily Collins_000,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Hashimoto Kana_000,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Kudo Mio_004,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Alexandra Daddario_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Aoi Yu_002,Ishihara Satomi_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Phạm Băng Băng_000,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Anna Chipovskaya_000,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Aoi Yu_002,Deva Cassel_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Châu Huệ Mẫn_000,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_2,Grace Kelly_000,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Jang Won-young_004,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Anya Taylor Joy_002,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Lee Ju Eun_004,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_2,Thu Hà_001,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Asuka Saito_001,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_2,Diana Frances Spencer_003,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Anya Taylor Joy_002,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Hashimoto Kana_000,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Deva Cassel_001,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Lee Ye bin_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Aoi Yu_002,Diana Frances Spencer_003,1.00,2026-06-22T00:00:00Z
+annotator_2,Chu Lâm_000,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_2,Lynne Frederick_000,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Kim Tae Hee_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_2,Grace Kelly_000,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_2,Ishihara Satomi_001,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Dương Mịch_000,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_2,Dương Mịch_000,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Lee Ju Eun_004,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Lý Thấm_002,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Châu Huệ Mẫn_000,Diana Frances Spencer_003,1.00,2026-06-22T00:00:00Z
+annotator_2,Dương Mịch_000,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_2,Diệp Toàn Chân_001,Ishihara Satomi_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Anya Taylor Joy_002,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Anya Taylor Joy_002,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Anna Chipovskaya_000,Dương Mịch_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Chu Lâm_000,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Lee Ye bin_000,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Tưởng Cần Cần_002,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Hashimoto Kana_000,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_2,Aoi Yu_002,Aragaki Yuko_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Natsukawa Yui_003,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Anna Chipovskaya_000,Châu Huệ Mẫn_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Lee Ju Eun_004,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Asuka Saito_001,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_2,Tưởng Hân_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Alexandra Daddario_004,Anya Taylor Joy_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Aragaki Yuko_001,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Chu Lâm_000,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Deva Cassel_001,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Nakama Yukie_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Blake Lively_003,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Kim Claudia_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_2,Anya Taylor Joy_002,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_2,Phạm Băng Băng_000,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_2,Natsukawa Yui_003,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Alexandra Daddario_004,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_3,Blake Lively_003,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_3,Aoi Yu_002,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Kim Ji Won_004,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_3,Anya Taylor Joy_002,Chu Lâm_000,1.00,2026-06-22T00:00:00Z
+annotator_3,Anna Chipovskaya_000,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Lee Ye bin_000,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_3,Chu Lâm_000,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Aoi Yu_002,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_3,Deva Cassel_001,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Diana Frances Spencer_003,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_3,Aoi Yu_002,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Gisele Bunchen_003,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_3,Anya Taylor Joy_002,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Lee Ye bin_000,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_3,Aoi Yu_002,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Alexandra Daddario_004,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_3,Kim Claudia_001,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_3,Chu Lâm_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Anya Taylor Joy_002,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_3,Aoi Yu_002,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_3,Chu Lâm_000,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Deva Cassel_001,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Chu Lâm_000,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_3,Chu Lâm_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Dương Mịch_000,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_3,Anna Chipovskaya_000,Aoi Yu_002,1.00,2026-06-22T00:00:00Z
+annotator_3,Diana Frances Spencer_003,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Diana Frances Spencer_003,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Châu Huệ Mẫn_000,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Asuka Saito_001,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_3,Hirose Suzu_004,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Diệp Toàn Chân_001,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_3,Diệp Toàn Chân_001,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Phương Lôi_001,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Hashimoto Kana_000,Natsukawa Yui_003,1.05,2026-06-22T00:00:00Z
+annotator_3,Phương Lôi_001,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Anna Chipovskaya_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Diệp Toàn Chân_001,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Anya Taylor Joy_002,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Chu Lâm_000,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Deva Cassel_001,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Dương Mịch_000,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_3,Thu Hà_001,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Hashimoto Kana_000,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_3,Lý Thấm_002,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Aoi Yu_002,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Natsukawa Yui_003,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Blake Lively_003,Châu Huệ Mẫn_000,1.00,2026-06-22T00:00:00Z
+annotator_3,Blake Lively_003,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_3,Hashimoto Kana_000,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_3,Alexandra Daddario_004,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_3,Dương Mịch_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_3,Alexandra Daddario_004,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_3,Thầm Nguyệt_003,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Anya Taylor Joy_002,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_3,Hirose Suzu_004,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_3,Natsukawa Yui_003,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Lily Collins_000,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Aragaki Yuko_001,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Diana Frances Spencer_003,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_3,Jang Won-young_004,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Nakama Yukie_004,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Blake Lively_003,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_3,Lee Ye bin_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Kim Ji Won_004,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Vương Tổ Hiền_000,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Kim Ji Won_004,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_3,Lynne Frederick_000,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_3,Lee Ye bin_000,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Diệp Toàn Chân_001,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_3,Lee Ju Eun_004,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Hashimoto Kana_000,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_3,Anna Chipovskaya_000,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Hirose Suzu_004,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_3,Kudo Mio_004,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Anna Chipovskaya_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_3,Deva Cassel_001,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Jang Won-young_004,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_3,Chu Lâm_000,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Lee Ju Eun_004,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Deva Cassel_001,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Hashimoto Kana_000,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Deva Cassel_001,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Kim Claudia_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Ishihara Satomi_001,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Ishihara Satomi_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_4,Anya Taylor Joy_002,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_4,Blake Lively_003,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Chu Lâm_000,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_4,Kudo Mio_004,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Anya Taylor Joy_002,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Anya Taylor Joy_002,Chu Lâm_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Diana Frances Spencer_003,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_4,Aoi Yu_002,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Deva Cassel_001,Dương Mịch_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Lee Ye bin_000,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Asuka Saito_001,Grace Kelly_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Dương Mịch_000,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Châu Huệ Mẫn_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Quan Hiểu Đồng_003,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Kim Ji Won_004,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Aoi Yu_002,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Deva Cassel_001,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Kim Ji Won_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Phương Lôi_001,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Jang Won-young_004,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Natsukawa Yui_003,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_4,Kudo Mio_004,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Kim Claudia_001,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Kim Ji Won_004,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Kudo Mio_004,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Diana Frances Spencer_003,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_4,Châu Huệ Mẫn_000,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Deva Cassel_001,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Lynne Frederick_000,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Dương Mịch_000,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Anna Chipovskaya_000,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Blake Lively_003,Châu Huệ Mẫn_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Hirose Suzu_004,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Diana Frances Spencer_003,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Anna Chipovskaya_000,Dương Mịch_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Ishihara Satomi_001,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Tưởng Hân_001,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Quan Hiểu Đồng_003,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Song Hye-kyo_002,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Chu Lâm_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Jang Won-young_004,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Kim Tae Hee_001,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Châu Huệ Mẫn_000,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Phạm Băng Băng_000,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_4,Anna Chipovskaya_000,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Lưu Diệp Phi_002,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Kim Ji Won_004,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Hirose Suzu_004,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Lưu Hạo Tồn_004,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_4,Blake Lively_003,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Hirose Suzu_004,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Asuka Saito_001,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Lưu Diệp Phi_002,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Jang Won-young_004,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Lưu Hạo Tồn_004,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Chu Lâm_000,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Hashimoto Kana_000,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Thầm Nguyệt_003,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Blake Lively_003,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Diana Frances Spencer_003,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Thu Hà_001,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Chu Lâm_000,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Gisele Bunchen_003,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Lee Ye bin_000,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Gisele Bunchen_003,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_4,Alexandra Daddario_004,Asuka Saito_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Lily Collins_000,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_4,Thu Hà_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_4,Jang Won-young_004,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Ishihara Satomi_001,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Phạm Băng Băng_000,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_4,Thầm Nguyệt_003,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_4,Deva Cassel_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_5,Aragaki Yuko_001,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Asuka Saito_001,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Jang Won-young_004,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_5,Kim Ji Won_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_5,Kudo Mio_004,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Anya Taylor Joy_002,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_5,Gisele Bunchen_003,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Tina Tamshiro_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_5,Diana Frances Spencer_003,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Kim Ji Won_004,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_5,Lưu Diệp Phi_002,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Lưu Hạo Tồn_004,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Gisele Bunchen_003,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Diệp Toàn Chân_001,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Aragaki Yuko_001,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_5,Châu Huệ Mẫn_000,Diana Frances Spencer_003,1.00,2026-06-22T00:00:00Z
+annotator_5,Anya Taylor Joy_002,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_5,Deva Cassel_001,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_5,Chu Lâm_000,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Phạm Băng Băng_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Grace Kelly_000,Ishihara Satomi_001,1.07,2026-06-22T00:00:00Z
+annotator_5,Kim Tae Hee_001,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Lily Collins_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Kudo Mio_004,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_5,Anna Chipovskaya_000,Blake Lively_003,1.00,2026-06-22T00:00:00Z
+annotator_5,Anna Chipovskaya_000,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_5,Gisele Bunchen_003,Ishihara Satomi_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Lưu Diệp Phi_002,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Alexandra Daddario_004,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_5,Anya Taylor Joy_002,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Lưu Hạo Tồn_004,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Thu Hà_001,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Alexandra Daddario_004,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Diệp Toàn Chân_001,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Nakama Yukie_004,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_5,Hirose Suzu_004,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_5,Phạm Băng Băng_000,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Song Hye-kyo_002,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_5,Lynne Frederick_000,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_5,Gisele Bunchen_003,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Aragaki Yuko_001,Chu Lâm_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Deva Cassel_001,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_5,Diana Frances Spencer_003,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Aoi Yu_002,Aragaki Yuko_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Chu Lâm_000,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Lưu Hạo Tồn_004,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Aragaki Yuko_001,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Kudo Mio_004,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_5,Lưu Diệp Phi_002,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Hirose Suzu_004,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Song Hye-kyo_002,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Kim Ji Won_004,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_5,Alexandra Daddario_004,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_5,Diệp Toàn Chân_001,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_5,Phương Lôi_001,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Tưởng Hân_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_5,Dương Mịch_000,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Ishihara Satomi_001,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Chu Lâm_000,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_5,Thu Hà_001,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Hirose Suzu_004,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_5,Grace Kelly_000,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_5,Kim Claudia_001,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_5,Anna Chipovskaya_000,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_5,Lý Thấm_002,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Lưu Diệp Phi_002,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_5,Dương Mịch_000,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_5,Tina Tamshiro_001,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Thầm Nguyệt_003,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Natsukawa Yui_003,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Asuka Saito_001,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_5,Chu Lâm_000,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Blake Lively_003,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Blake Lively_003,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_5,Jang Won-young_004,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_5,Kim Tae Hee_001,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Quan Hiểu Đồng_003,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Diệp Toàn Chân_001,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_5,Ishihara Satomi_001,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_5,Kim Claudia_001,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Jang Won-young_004,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_6,Anya Taylor Joy_002,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_6,Lily Collins_000,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Deva Cassel_001,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Blake Lively_003,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Hirose Suzu_004,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Dương Mịch_000,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_6,Alexandra Daddario_004,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Deva Cassel_001,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_6,Chu Lâm_000,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_6,Wakana Matsumoto_000,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_6,Blake Lively_003,Deva Cassel_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Tưởng Cần Cần_002,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_6,Diệp Toàn Chân_001,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Lynne Frederick_000,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Quan Hiểu Đồng_003,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Anya Taylor Joy_002,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_6,Tina Tamshiro_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Thầm Nguyệt_003,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Lý Thấm_002,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Chu Lâm_000,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Hirose Suzu_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Lee Ju Eun_004,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Diệp Toàn Chân_001,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Anya Taylor Joy_002,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Chu Lâm_000,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Vạn Thiến_001,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Gisele Bunchen_003,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Alexandra Daddario_004,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_6,Anna Chipovskaya_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Jang Won-young_004,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_6,Ishihara Satomi_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Aragaki Yuko_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_6,Alexandra Daddario_004,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_6,Châu Huệ Mẫn_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Asuka Saito_001,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Gisele Bunchen_003,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_6,Châu Huệ Mẫn_000,Diana Frances Spencer_003,1.00,2026-06-22T00:00:00Z
+annotator_6,Asuka Saito_001,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_6,Blake Lively_003,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_6,Phạm Băng Băng_000,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Aragaki Yuko_001,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_6,Riho Takada_001,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Deva Cassel_001,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Phương Lôi_001,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Grace Kelly_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Lưu Hạo Tồn_004,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Lưu Diệp Phi_002,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Diệp Toàn Chân_001,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Hashimoto Kana_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Blake Lively_003,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Dương Mịch_000,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Châu Huệ Mẫn_000,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Châu Huệ Mẫn_000,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Dương Mịch_000,Grace Kelly_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Anna Chipovskaya_000,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Aragaki Yuko_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Natsukawa Yui_003,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_6,Nakama Yukie_004,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Thu Hà_001,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Phương Lôi_001,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_6,Dương Mịch_000,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_6,Asuka Saito_001,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Kim Tae Hee_001,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Kim Ji Won_004,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_6,Gisele Bunchen_003,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_6,Blake Lively_003,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Anna Chipovskaya_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Lưu Diệp Phi_002,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_6,Châu Huệ Mẫn_000,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_6,Jang Won-young_004,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Natsukawa Yui_003,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Anya Taylor Joy_002,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Quan Hiểu Đồng_003,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_6,Asuka Saito_001,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Hashimoto Kana_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Blake Lively_003,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_6,Aragaki Yuko_001,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Quan Hiểu Đồng_003,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_6,Aragaki Yuko_001,Deva Cassel_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Blake Lively_003,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_7,Kudo Mio_004,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Alexandra Daddario_004,Anya Taylor Joy_002,1.00,2026-06-22T00:00:00Z
+annotator_7,Thầm Nguyệt_003,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Blake Lively_003,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_7,Lily Collins_000,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Diana Frances Spencer_003,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Lee Ye bin_000,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Dương Mịch_000,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_7,Kim Ji Won_004,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Anya Taylor Joy_002,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Ishihara Satomi_001,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_7,Aragaki Yuko_001,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_7,Kim Ji Won_004,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_7,Natsukawa Yui_003,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Deva Cassel_001,Dương Mịch_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Kim Claudia_001,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_7,Deva Cassel_001,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Diệp Toàn Chân_001,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_7,Aragaki Yuko_001,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Alexandra Daddario_004,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Kudo Mio_004,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Ishihara Satomi_001,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Hashimoto Kana_000,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Kim Claudia_001,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Hashimoto Kana_000,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Aragaki Yuko_001,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_7,Alexandra Daddario_004,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Diana Frances Spencer_003,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Lưu Hạo Tồn_004,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_7,Hashimoto Kana_000,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Jang Won-young_004,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Trần Đức Dung_004,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Hashimoto Kana_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Tưởng Hân_001,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Anna Chipovskaya_000,Ishihara Satomi_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Lưu Diệp Phi_002,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Alexandra Daddario_004,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Châu Huệ Mẫn_000,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_7,Asuka Saito_001,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_7,Kudo Mio_004,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_7,Lynne Frederick_000,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Alexandra Daddario_004,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Alexandra Daddario_004,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Châu Huệ Mẫn_000,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_7,Song Hye-kyo_002,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_7,Phạm Băng Băng_000,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Lee Ye bin_000,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_7,Phương Lôi_001,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_7,Lily Collins_000,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_7,Lily Collins_000,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Aoi Yu_002,Dương Mịch_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Dương Mịch_000,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_7,Hashimoto Kana_000,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Ishihara Satomi_001,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Hirose Suzu_004,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Anya Taylor Joy_002,Aoi Yu_002,1.00,2026-06-22T00:00:00Z
+annotator_7,Anya Taylor Joy_002,Grace Kelly_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Aragaki Yuko_001,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Hirose Suzu_004,Ishihara Satomi_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Lynne Frederick_000,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Kim Ji Won_004,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Grace Kelly_000,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Lee Ye bin_000,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_7,Anya Taylor Joy_002,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Thu Hà_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Blake Lively_003,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Hashimoto Kana_000,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Anna Chipovskaya_000,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_7,Aoi Yu_002,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Aoi Yu_002,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Lưu Hạo Tồn_004,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Lee Ye bin_000,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Chu Lâm_000,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_7,Gisele Bunchen_003,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_7,Alexandra Daddario_004,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Song Hye-kyo_002,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Anya Taylor Joy_002,Chu Lâm_000,1.00,2026-06-22T00:00:00Z
+annotator_7,Hashimoto Kana_000,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_7,Gisele Bunchen_003,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Anna Chipovskaya_000,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_8,Alexandra Daddario_004,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Natsukawa Yui_003,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_8,Hashimoto Kana_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Vạn Thiến_001,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Chu Lâm_000,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Lynne Frederick_000,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Aragaki Yuko_001,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Diana Frances Spencer_003,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Tina Tamshiro_001,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Blake Lively_003,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Deva Cassel_001,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Alexandra Daddario_004,Deva Cassel_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Phạm Băng Băng_000,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Lý Thấm_002,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Aragaki Yuko_001,Châu Huệ Mẫn_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Hirose Suzu_004,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Lee Ye bin_000,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Lee Ju Eun_004,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Aoi Yu_002,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_8,Deva Cassel_001,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Tưởng Cần Cần_002,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Thu Hà_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Diana Frances Spencer_003,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Blake Lively_003,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Lee Ye bin_000,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_8,Phương Lôi_001,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Lynne Frederick_000,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_8,Anya Taylor Joy_002,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_8,Natsukawa Yui_003,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Kim Claudia_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Châu Huệ Mẫn_000,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Riho Takada_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Natsukawa Yui_003,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Lưu Diệp Phi_002,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Song Hye-kyo_002,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Hirose Suzu_004,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Lynne Frederick_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Jang Won-young_004,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Aoi Yu_002,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Lily Collins_000,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_8,Dương Mịch_000,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Deva Cassel_001,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Hirose Suzu_004,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Diana Frances Spencer_003,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Anna Chipovskaya_000,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Jang Won-young_004,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Diệp Toàn Chân_001,Dương Mịch_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Anna Chipovskaya_000,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Chu Lâm_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Hashimoto Kana_000,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Kim Claudia_001,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Chu Lâm_000,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Jang Won-young_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_8,Diana Frances Spencer_003,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Lưu Hạo Tồn_004,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Blake Lively_003,Diana Frances Spencer_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Phạm Băng Băng_000,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Grace Kelly_000,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Asuka Saito_001,Châu Huệ Mẫn_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Alexandra Daddario_004,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Anna Chipovskaya_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Châu Huệ Mẫn_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Châu Huệ Mẫn_000,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_8,Hirose Suzu_004,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_8,Aragaki Yuko_001,Blake Lively_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Anna Chipovskaya_000,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Deva Cassel_001,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Trương Mẫn_001,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_8,Diệp Toàn Chân_001,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Deva Cassel_001,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_8,Kim Tae Hee_001,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Kudo Mio_004,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_8,Nakama Yukie_004,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_8,Diệp Toàn Chân_001,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Lưu Diệp Phi_002,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_8,Deva Cassel_001,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_8,Lee Ju Eun_004,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Phương Lôi_001,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_8,Diệp Toàn Chân_001,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Aoi Yu_002,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_9,Diana Frances Spencer_003,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_9,Trương Mẫn_001,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Asuka Saito_001,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_9,Natsukawa Yui_003,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Kim Tae Hee_001,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Aragaki Yuko_001,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_9,Hirose Suzu_004,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Lily Collins_000,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Thu Hà_001,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Châu Huệ Mẫn_000,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Hashimoto Kana_000,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Lý Thấm_002,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Diệp Toàn Chân_001,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Blake Lively_003,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Blake Lively_003,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_9,Riho Takada_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_9,Phương Lôi_001,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Kim Claudia_001,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_9,Aoi Yu_002,Deva Cassel_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Kim Claudia_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_9,Lee Ju Eun_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_9,Diệp Toàn Chân_001,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Ishihara Satomi_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_9,Grace Kelly_000,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Kim Tae Hee_001,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Asuka Saito_001,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Gisele Bunchen_003,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_9,Vương Tổ Hiền_000,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_9,Anya Taylor Joy_002,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Lý Thấm_002,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_9,Chu Lâm_000,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_9,Chu Lâm_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Riho Takada_001,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Jang Won-young_004,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_9,Blake Lively_003,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Aragaki Yuko_001,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Gisele Bunchen_003,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_9,Hirose Suzu_004,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Aragaki Yuko_001,Blake Lively_003,1.00,2026-06-22T00:00:00Z
+annotator_9,Gisele Bunchen_003,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_9,Asuka Saito_001,Chu Lâm_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Lynne Frederick_000,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Diệp Toàn Chân_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_9,Aoi Yu_002,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Natsukawa Yui_003,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Jang Won-young_004,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Diệp Toàn Chân_001,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Diệp Toàn Chân_001,Grace Kelly_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Nakama Yukie_004,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Kim Claudia_001,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Aragaki Yuko_001,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Anna Chipovskaya_000,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Kim Claudia_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_9,Diệp Toàn Chân_001,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Anya Taylor Joy_002,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Grace Kelly_000,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_9,Alexandra Daddario_004,Ishihara Satomi_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Lee Ye bin_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Châu Huệ Mẫn_000,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Trương Mẫn_001,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Lee Ye bin_000,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Hirose Suzu_004,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_9,Anya Taylor Joy_002,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_9,Lý Thấm_002,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_9,Kim Claudia_001,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Diệp Toàn Chân_001,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_9,Lynne Frederick_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Jang Won-young_004,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Grace Kelly_000,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Dương Mịch_000,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_9,Kim Ji Won_004,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Lee Ju Eun_004,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_9,Anna Chipovskaya_000,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_9,Nakama Yukie_004,Winona Ryder_002,1.05,2026-06-22T00:00:00Z
+annotator_9,Dương Mịch_000,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_9,Anya Taylor Joy_002,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_9,Song Hye-kyo_002,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_9,Lee Ye bin_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_9,Riho Takada_001,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Lee Ju Eun_004,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Gisele Bunchen_003,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Natsukawa Yui_003,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Diana Frances Spencer_003,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_10,Blake Lively_003,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_10,Jang Won-young_004,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_10,Kim Ji Won_004,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_10,Quan Hiểu Đồng_003,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_10,Asuka Saito_001,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Lee Ye bin_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Kim Ji Won_004,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_10,Phạm Băng Băng_000,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Deva Cassel_001,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Kim Ji Won_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Alexandra Daddario_004,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Lily Collins_000,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Lee Ju Eun_004,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Riho Takada_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_10,Gisele Bunchen_003,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_10,Ishihara Satomi_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_10,Hashimoto Kana_000,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Aragaki Yuko_001,Diana Frances Spencer_003,1.00,2026-06-22T00:00:00Z
+annotator_10,Grace Kelly_000,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Anya Taylor Joy_002,Asuka Saito_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Tưởng Cần Cần_002,Tưởng Hân_001,1.06,2026-06-22T00:00:00Z
+annotator_10,Lý Thấm_002,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Lynne Frederick_000,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Thu Hà_001,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Nakama Yukie_004,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Kim Ji Won_004,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Chu Lâm_000,Gisele Bunchen_003,1.27,2026-06-22T00:00:00Z
+annotator_10,Gisele Bunchen_003,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Anna Chipovskaya_000,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Grace Kelly_000,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_10,Anya Taylor Joy_002,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Dương Mịch_000,Grace Kelly_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Lee Ju Eun_004,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Alexandra Daddario_004,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_10,Deva Cassel_001,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Diana Frances Spencer_003,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Kim Tae Hee_001,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Aoi Yu_002,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Kim Tae Hee_001,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Anna Chipovskaya_000,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Anya Taylor Joy_002,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Alexandra Daddario_004,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Lee Ju Eun_004,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Lưu Diệp Phi_002,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_10,Ishihara Satomi_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Lý Thấm_002,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_10,Grace Kelly_000,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_10,Lily Collins_000,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Tina Tamshiro_001,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Lưu Hạo Tồn_004,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Anna Chipovskaya_000,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Kim Ji Won_004,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_10,Anna Chipovskaya_000,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_10,Dương Mịch_000,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_10,Kudo Mio_004,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Kim Claudia_001,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_10,Song Hye-kyo_002,Winona Ryder_002,1.11,2026-06-22T00:00:00Z
+annotator_10,Hirose Suzu_004,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_10,Riho Takada_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Riho Takada_001,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Blake Lively_003,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Kudo Mio_004,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Aoi Yu_002,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Diệp Toàn Chân_001,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_10,Kudo Mio_004,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Quan Hiểu Đồng_003,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_10,Alexandra Daddario_004,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Grace Kelly_000,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Jang Won-young_004,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_10,Blake Lively_003,Wakana Matsumoto_000,1.16,2026-06-22T00:00:00Z
+annotator_10,Thầm Nguyệt_003,Yui Asakura_003,1.04,2026-06-22T00:00:00Z
+annotator_10,Diana Frances Spencer_003,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_10,Gisele Bunchen_003,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Ishihara Satomi_001,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_10,Lily Collins_000,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_10,Chu Lâm_000,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_11,Blake Lively_003,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Kim Claudia_001,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Chu Lâm_000,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_11,Hashimoto Kana_000,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Lưu Hạo Tồn_004,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_11,Winona Ryder_002,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_11,Riho Takada_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Ishihara Satomi_001,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Blake Lively_003,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Lý Thấm_002,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Lee Ju Eun_004,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Chu Lâm_000,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Deva Cassel_001,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Anya Taylor Joy_002,Aoi Yu_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Aoi Yu_002,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Aragaki Yuko_001,Chu Lâm_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Asuka Saito_001,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Thu Hà_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Riho Takada_001,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Gisele Bunchen_003,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Anya Taylor Joy_002,Deva Cassel_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Grace Kelly_000,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Hirose Suzu_004,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Asuka Saito_001,Chu Lâm_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Blake Lively_003,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Lưu Diệp Phi_002,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Hashimoto Kana_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Quan Hiểu Đồng_003,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Deva Cassel_001,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Wakana Matsumoto_000,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Diana Frances Spencer_003,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Anna Chipovskaya_000,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Quan Hiểu Đồng_003,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Tưởng Hân_001,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Jang Won-young_004,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Kudo Mio_004,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Ishihara Satomi_001,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Vạn Thiến_001,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Diana Frances Spencer_003,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Anya Taylor Joy_002,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Lee Ye bin_000,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Natsukawa Yui_003,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Grace Kelly_000,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Alexandra Daddario_004,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Jang Won-young_004,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_11,Lynne Frederick_000,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Asuka Saito_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Phương Lôi_001,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Dương Mịch_000,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Châu Huệ Mẫn_000,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Kim Ji Won_004,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Aragaki Yuko_001,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Kim Ji Won_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Hashimoto Kana_000,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Natsukawa Yui_003,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Grace Kelly_000,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Hashimoto Kana_000,Ishihara Satomi_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Gisele Bunchen_003,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Lynne Frederick_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Ishihara Satomi_001,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Lee Ju Eun_004,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Châu Huệ Mẫn_000,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_11,Diana Frances Spencer_003,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Lưu Hạo Tồn_004,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Lynne Frederick_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Lưu Hạo Tồn_004,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Song Hye-kyo_002,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Kim Tae Hee_001,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Aragaki Yuko_001,Grace Kelly_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Hirose Suzu_004,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Phạm Băng Băng_000,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Diệp Toàn Chân_001,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Kim Ji Won_004,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Chu Lâm_000,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Blake Lively_003,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_11,Alexandra Daddario_004,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_11,Alexandra Daddario_004,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_11,Kim Ji Won_004,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_11,Blake Lively_003,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_11,Lynne Frederick_000,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Nakama Yukie_004,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Alexandra Daddario_004,Diệp Toàn Chân_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Hashimoto Kana_000,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_12,Diana Frances Spencer_003,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_12,Alexandra Daddario_004,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Lee Ju Eun_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_12,Phương Lôi_001,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_12,Dương Mịch_000,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Grace Kelly_000,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Lee Ju Eun_004,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Diana Frances Spencer_003,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Diana Frances Spencer_003,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_12,Asuka Saito_001,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Lynne Frederick_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Diệp Toàn Chân_001,Ishihara Satomi_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Gisele Bunchen_003,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Blake Lively_003,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Ishihara Satomi_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_12,Deva Cassel_001,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Tưởng Cần Cần_002,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Gisele Bunchen_003,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Gisele Bunchen_003,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Ishihara Satomi_001,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Anna Chipovskaya_000,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_12,Kudo Mio_004,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Blake Lively_003,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Hirose Suzu_004,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Dương Mịch_000,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Quan Hiểu Đồng_003,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Anna Chipovskaya_000,Chu Lâm_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Kudo Mio_004,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Diệp Toàn Chân_001,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Jang Won-young_004,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_12,Chu Lâm_000,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_12,Anna Chipovskaya_000,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Hirose Suzu_004,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_12,Diana Frances Spencer_003,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Aoi Yu_002,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Anya Taylor Joy_002,Diana Frances Spencer_003,1.00,2026-06-22T00:00:00Z
+annotator_12,Quan Hiểu Đồng_003,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_12,Diana Frances Spencer_003,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Alexandra Daddario_004,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Anya Taylor Joy_002,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Aragaki Yuko_001,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Diana Frances Spencer_003,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Wakana Matsumoto_000,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_12,Hashimoto Kana_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Deva Cassel_001,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Anna Chipovskaya_000,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Lynne Frederick_000,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_12,Kim Claudia_001,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Hashimoto Kana_000,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Kim Claudia_001,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Alexandra Daddario_004,Aragaki Yuko_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Blake Lively_003,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Châu Huệ Mẫn_000,Grace Kelly_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Ishihara Satomi_001,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Lưu Hạo Tồn_004,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_12,Gisele Bunchen_003,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Kim Claudia_001,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_12,Dương Mịch_000,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_12,Lee Ye bin_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Aoi Yu_002,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Aoi Yu_002,Grace Kelly_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Diệp Toàn Chân_001,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Blake Lively_003,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Dương Mịch_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Lưu Diệp Phi_002,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Thu Hà_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_12,Tina Tamshiro_001,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_12,Thu Hà_001,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_12,Grace Kelly_000,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_12,Châu Huệ Mẫn_000,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Dương Mịch_000,Grace Kelly_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Thầm Nguyệt_003,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_12,Diệp Toàn Chân_001,Kim Claudia_001,1.00,2026-06-22T00:00:00Z
+annotator_12,Hashimoto Kana_000,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_12,Anna Chipovskaya_000,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Lee Ju Eun_004,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_12,Lily Collins_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Lee Ye bin_000,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_13,Aragaki Yuko_001,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Grace Kelly_000,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Chu Lâm_000,Deva Cassel_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Phương Lôi_001,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_13,Asuka Saito_001,Chu Lâm_000,1.00,2026-06-22T00:00:00Z
+annotator_13,Aragaki Yuko_001,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_13,Alexandra Daddario_004,Blake Lively_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Anna Chipovskaya_000,Deva Cassel_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Lý Thấm_002,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_13,Kim Claudia_001,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_13,Anya Taylor Joy_002,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_13,Anna Chipovskaya_000,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Lưu Hạo Tồn_004,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Aoi Yu_002,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Gisele Bunchen_003,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_13,Alexandra Daddario_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_13,Ishihara Satomi_001,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_13,Jang Won-young_004,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Chu Lâm_000,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Anna Chipovskaya_000,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Diệp Toàn Chân_001,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Blake Lively_003,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_13,Lưu Diệp Phi_002,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Dương Mịch_000,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_13,Deva Cassel_001,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_13,Trần Đức Dung_004,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_13,Lynne Frederick_000,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_13,Anya Taylor Joy_002,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Diệp Toàn Chân_001,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Kim Claudia_001,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Alexandra Daddario_004,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Diana Frances Spencer_003,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_13,Hashimoto Kana_000,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Kim Tae Hee_001,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Anya Taylor Joy_002,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Aragaki Yuko_001,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_13,Grace Kelly_000,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_13,Lee Ju Eun_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_13,Lynne Frederick_000,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_13,Quan Hiểu Đồng_003,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Natsukawa Yui_003,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Nakama Yukie_004,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_13,Anya Taylor Joy_002,Asuka Saito_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Jang Won-young_004,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Lee Ye bin_000,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Asuka Saito_001,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_13,Alexandra Daddario_004,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Aoi Yu_002,Chu Lâm_000,1.00,2026-06-22T00:00:00Z
+annotator_13,Lynne Frederick_000,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_13,Aoi Yu_002,Kim Ji Won_004,1.00,2026-06-22T00:00:00Z
+annotator_13,Kim Tae Hee_001,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_13,Aoi Yu_002,Hashimoto Kana_000,1.00,2026-06-22T00:00:00Z
+annotator_13,Wakana Matsumoto_000,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Lưu Hạo Tồn_004,Thầm Nguyệt_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Aragaki Yuko_001,Blake Lively_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Thầm Nguyệt_003,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_13,Song Hye-kyo_002,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Hashimoto Kana_000,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_13,Dương Mịch_000,Gisele Bunchen_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Kim Claudia_001,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_13,Kim Claudia_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Gisele Bunchen_003,Ishihara Satomi_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Jang Won-young_004,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_13,Alexandra Daddario_004,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_13,Aragaki Yuko_001,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Thu Hà_001,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Châu Huệ Mẫn_000,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Jang Won-young_004,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_13,Aragaki Yuko_001,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Lee Ju Eun_004,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Diana Frances Spencer_003,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Chu Lâm_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Châu Huệ Mẫn_000,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Alexandra Daddario_004,Asuka Saito_001,1.00,2026-06-22T00:00:00Z
+annotator_13,Phương Lôi_001,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Aoi Yu_002,Blake Lively_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Dương Mịch_000,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_13,Jang Won-young_004,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_13,Ishihara Satomi_001,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Diana Frances Spencer_003,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Châu Huệ Mẫn_000,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_14,Hirose Suzu_004,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Aragaki Yuko_001,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Deva Cassel_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_14,Hirose Suzu_004,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_14,Chu Lâm_000,Dương Mịch_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Lee Ju Eun_004,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Kim Ji Won_004,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Hirose Suzu_004,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Jang Won-young_004,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Blake Lively_003,Kim Tae Hee_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Grace Kelly_000,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Anna Chipovskaya_000,Lưu Hạo Tồn_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Kim Claudia_001,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Tina Tamshiro_001,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_14,Aragaki Yuko_001,Blake Lively_003,1.00,2026-06-22T00:00:00Z
+annotator_14,Hashimoto Kana_000,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_14,Lily Collins_000,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Hirose Suzu_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_14,Blake Lively_003,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Phương Lôi_001,Riho Takada_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Tina Tamshiro_001,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Deva Cassel_001,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Asuka Saito_001,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Blake Lively_003,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Hirose Suzu_004,Lee Ju Eun_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Aoi Yu_002,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Anna Chipovskaya_000,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Dương Mịch_000,Lee Ye bin_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Kim Ji Won_004,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_14,Quan Hiểu Đồng_003,Thu Hà_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Asuka Saito_001,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Ishihara Satomi_001,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_14,Kudo Mio_004,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Diệp Toàn Chân_001,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Blake Lively_003,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_14,Hashimoto Kana_000,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_14,Diana Frances Spencer_003,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_14,Asuka Saito_001,Đồng Lệ Á_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Kim Claudia_001,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_14,Alexandra Daddario_004,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Anna Chipovskaya_000,Hirose Suzu_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Kim Ji Won_004,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Lee Ju Eun_004,Phương Lôi_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Lý Thấm_002,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_14,Trương Mẫn_001,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Kim Ji Won_004,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Aragaki Yuko_001,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Trần Đức Dung_004,Winona Ryder_002,1.00,2026-06-22T00:00:00Z
+annotator_14,Asuka Saito_001,Blake Lively_003,1.00,2026-06-22T00:00:00Z
+annotator_14,Blake Lively_003,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Blake Lively_003,Dương Mịch_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Grace Kelly_000,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_14,Aragaki Yuko_001,Lý Thấm_002,1.00,2026-06-22T00:00:00Z
+annotator_14,Lynne Frederick_000,Nakama Yukie_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Blake Lively_003,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Lưu Hạo Tồn_004,Vương Tổ Hiền_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Chu Lâm_000,Natsukawa Yui_003,1.00,2026-06-22T00:00:00Z
+annotator_14,Natsukawa Yui_003,Vạn Thiến_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Hashimoto Kana_000,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Deva Cassel_001,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Quan Hiểu Đồng_003,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Lee Ju Eun_004,Song Hye-kyo_002,1.00,2026-06-22T00:00:00Z
+annotator_14,Phương Lôi_001,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z
+annotator_14,Lý Thấm_002,Trần Đức Dung_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Aoi Yu_002,Lynne Frederick_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Jang Won-young_004,Lily Collins_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Song Hye-kyo_002,Yui Asakura_003,1.00,2026-06-22T00:00:00Z
+annotator_14,Diệp Toàn Chân_001,Quan Hiểu Đồng_003,1.00,2026-06-22T00:00:00Z
+annotator_14,Dương Mịch_000,Phạm Băng Băng_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Nakama Yukie_004,Tina Tamshiro_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Dương Mịch_000,Lưu Diệp Phi_002,1.00,2026-06-22T00:00:00Z
+annotator_14,Deva Cassel_001,Jang Won-young_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Aragaki Yuko_001,Diana Frances Spencer_003,1.00,2026-06-22T00:00:00Z
+annotator_14,Dương Mịch_000,Tưởng Hân_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Deva Cassel_001,Wakana Matsumoto_000,1.00,2026-06-22T00:00:00Z
+annotator_14,Kim Ji Won_004,Kudo Mio_004,1.00,2026-06-22T00:00:00Z
+annotator_14,Anya Taylor Joy_002,Trương Mẫn_001,1.00,2026-06-22T00:00:00Z
+annotator_14,Lee Ju Eun_004,Tưởng Cần Cần_002,1.00,2026-06-22T00:00:00Z

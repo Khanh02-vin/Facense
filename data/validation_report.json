@@ -1,0 +1,16 @@
+{
+  "passed": [
+    "Face importance",
+    "Feature diversity",
+    "Physical features",
+    "MAE acceptable",
+    "R2 positive",
+    "CV positive",
+    "Explanation available"
+  ],
+  "warnings": [
+    "Overfitting"
+  ],
+  "passed_rate": 0.875,
+  "status": "validated"
+}
