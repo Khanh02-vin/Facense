@@ -73,7 +73,7 @@ def run_evaluation(
     print("Phase 1: Representation Validation")
     print("-" * 40)
 
-    from src.validation import RepresentationValidator
+    from src.analysis_evalution.validation import RepresentationValidator
 
     np.random.seed(42)
     n_samples = 200
@@ -118,7 +118,7 @@ def run_evaluation(
     print("Phase 2: Null Models Testing")
     print("-" * 40)
 
-    from src.null_models import NullModelSuite, interpret_null_results
+    from src.preference_learning.null_models import NullModelSuite, interpret_null_results
 
     suite = NullModelSuite(n_permutations=n_permutations, alpha=0.05)
     user_ids = np.array([f"user_{i % 20}" for i in range(n_samples)])
@@ -140,7 +140,7 @@ def run_evaluation(
     print("Phase 3: Pairwise Preference Learning")
     print("-" * 40)
 
-    from src.preference import BradleyTerryModel, PairwiseSample, MixtureOfPrototypes
+    from src.preference_learning.preference import BradleyTerryModel, PairwiseSample, MixtureOfPrototypes
 
     # Generate synthetic pairwise data
     pairs = []
@@ -184,7 +184,7 @@ def run_evaluation(
     print("Phase 4: Retrieval Evaluation")
     print("-" * 40)
 
-    from src.retrieval import RetrievalEngine, RetrievalEvaluator
+    from src.retrieval_recommend.retrieval import RetrievalEngine, RetrievalEvaluator
 
     # Build retrieval engine
     embeddings_dict = {
@@ -200,7 +200,7 @@ def run_evaluation(
     evaluator = RetrievalEvaluator(k_values=[1, 3, 5, 10])
 
     # Evaluate sample queries
-    from src.retrieval import RetrievalResult
+    from src.retrieval_recommend.retrieval import RetrievalResult
 
     eval_results = []
     for query_id in ["img_0", "img_1", "img_2", "img_3", "img_4"]:
@@ -234,7 +234,7 @@ def run_evaluation(
     print("Phase 5: Cycle Diagnostics")
     print("-" * 40)
 
-    from src.cycle_diagnostics import (
+    from src.analysis_evalution.cycle_diagnostics import (
         CycleDetector, TransitivityAnalyzer, build_pairwise_matrix
     )
 

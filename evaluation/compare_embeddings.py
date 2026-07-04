@@ -21,7 +21,7 @@ import cv2
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.rsa import (
+from src.preference_learning.rsa import (
     RSAComparator, EmbeddingSimilarityMatrix, RSAResult,
     generate_synthetic_human_similarity, SimilarityMatrixBuilder
 )

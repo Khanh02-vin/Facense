@@ -18,7 +18,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.rsa import (
+from src.preference_learning.rsa import (
     RSAComparator, EmbeddingSimilarityMatrix, RSAResult,
     interpret_rsa_result, SimilarityMatrixBuilder, SimilarityJudgment
 )

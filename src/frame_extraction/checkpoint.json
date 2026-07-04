@@ -1,0 +1,12 @@
+{
+  "processed_videos": [],
+  "total_processing_time": 0.0,
+  "last_updated": null,
+  "video_timings": {},
+  "statistics": {
+    "total_videos_processed": 0,
+    "total_frames_extracted": 0,
+    "total_frames_passed": 0,
+    "skipped_videos": 0
+  }
+}

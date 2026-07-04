@@ -24,8 +24,8 @@ sys.stdout.reconfigure(encoding='utf-8')
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent))
 
-from feature_extractor_layer1 import FeatureExtractorLayer1
-from feature_extractor_layer2 import FeatureExtractorLayer2
+from src.feature_extraction.feature_extractor_layer1 import FeatureExtractorLayer1
+from src.feature_extraction.feature_extractor_layer2 import FeatureExtractorLayer2
 
 
 DATASET_DIR = Path("D:/Dataset/Face_project_datset")

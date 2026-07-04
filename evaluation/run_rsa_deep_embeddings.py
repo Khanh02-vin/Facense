@@ -13,7 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.rsa import RSAComparator
+from src.preference_learning.rsa import RSAComparator
 
 
 def run_rsa_for_model(

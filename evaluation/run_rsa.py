@@ -13,7 +13,7 @@ from pathlib import Path
 # Add parent to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.rsa import (
+from src.preference_learning.rsa import (
     RSAComparator, EmbeddingSimilarityMatrix, RSAResult,
     interpret_rsa_result, generate_synthetic_human_similarity
 )
