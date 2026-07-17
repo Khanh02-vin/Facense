@@ -70,7 +70,7 @@ class PreferenceModelTrainer:
         'motion_energy',
         'motion_peak',
         'motion_variance',
-        'blur',
+        'blur_score',
         'brightness',
         'brightness_std',
         'face_visibility',
@@ -108,6 +108,17 @@ class PreferenceModelTrainer:
         Returns:
             X, y arrays
         """
+        if len(features_list) != len(labels):
+            raise ValueError("features_list and labels must have equal length")
+
+        missing = sorted({
+            name for features in features_list
+            for name in self.FEATURE_NAMES
+            if name not in features
+        })
+        if missing:
+            print(f"[WARN] Missing feature fields default to 0.0: {missing}")
+
         X = []
         y = []
 

@@ -111,9 +111,34 @@ class FeatureExtractorLayer2:
 
         if MEDIAPIPE_AVAILABLE:
             try:
+                # Try known bundled model paths, then fallback to user-provided path
+                import mediapipe as mp
+                _candidates = []
+                if model_path:
+                    _candidates.append(model_path)
+                # MediaPipe pip bundle paths
+                _mp_root = Path(mp.__file__).parent
+                _candidates.extend([
+                    str(_mp_root / "modules/face_landmarker/face_landmarker.task"),
+                    str(Path("face_landmarker.task").resolve()),
+                ])
+
+                from mediapipe.tasks.python.vision import FaceLandmarker, FaceLandmarkerOptions
                 from mediapipe.tasks.python.components.containers import BaseOptions
 
-                base_options = BaseOptions(model_asset_path=model_path or 'face_landmarker.task')
+                _model_asset = None
+                for c in _candidates:
+                    if Path(c).exists():
+                        _model_asset = c
+                        break
+
+                if _model_asset is None:
+                    raise FileNotFoundError(
+                        "face_landmarker.task not found at any known path. "
+                        "Install via: wget https://storage.googleapis.com/..."
+                    )
+
+                base_options = BaseOptions(model_asset_path=_model_asset)
                 options = FaceLandmarkerOptions(
                     base_options=base_options,
                     num_faces=1,

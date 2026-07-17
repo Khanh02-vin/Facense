@@ -1,0 +1,548 @@
+"""
+serve.py — FastAPI serving layer for Facense.
+
+Exposes endpoints over the learned preference ranking system:
+  GET  /              → app info
+  GET  /health        → readiness probe
+  GET  /items         → list top-N items by BT score
+  POST /rank          → top-K ranked items (embedding | bradley_terry | combined)
+  POST /encode        → extract SigLIP embedding from base64 image
+
+Modes:
+  --bootstrap-sample  Generate 100 random 768-d vectors + synthetic BT scores
+                       so the server can run without a trained model on disk.
+
+Run:
+  python serve.py                              # serve with real artifacts
+  python serve.py --bootstrap-sample           # demo mode, no data needed
+  python serve.py --port 9000 --reload         # custom port + auto-reload
+
+Then in another terminal:
+  curl http://localhost:8080/health
+"""
+
+from __future__ import annotations
+
+import argparse
+import base64
+import io
+import json
+import logging
+import os
+import sys
+import time
+from contextlib import asynccontextmanager
+from pathlib import Path
+from typing import Literal, Optional
+
+import numpy as np
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, Field
+
+# Optional — only required if /encode is hit
+try:
+    from PIL import Image
+except ImportError:  # pragma: no cover
+    Image = None  # type: ignore[assignment]
+
+# ---------------------------------------------------------------------------
+# Config & paths
+# ---------------------------------------------------------------------------
+DEFAULT_PORT = 8080
+EMBEDDINGS_PATH = Path("data/processed/embeddings.npz")
+BT_SCORES_PATH = Path("data/processed/bradley_terry_scores.json")
+EMBED_DIM = 768
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)-7s | %(message)s",
+)
+log = logging.getLogger("facense.serve")
+
+
+# ---------------------------------------------------------------------------
+# Pydantic schemas
+# ---------------------------------------------------------------------------
+class HealthResponse(BaseModel):
+    status: str
+    n_items: int
+    n_with_bt_score: int
+    embedding_model_loaded: bool
+    bootstrap_mode: bool
+
+
+class RankRequest(BaseModel):
+    image_id: Optional[str] = Field(
+        default=None,
+        description="ID of an existing item to use as the query. Mutually exclusive with image_b64.",
+    )
+    image_b64: Optional[str] = Field(
+        default=None,
+        description="Base64-encoded image. Will be encoded on the fly via SigLIP.",
+    )
+    top_k: int = Field(default=10, ge=1, le=100)
+    method: Literal["embedding", "bradley_terry", "combined"] = "combined"
+    alpha: float = Field(
+        default=0.5,
+        ge=0.0,
+        le=1.0,
+        description="For method=combined: weight on embedding similarity (1-alpha on BT).",
+    )
+    exclude_self: bool = Field(default=True)
+
+
+class RankedItem(BaseModel):
+    id: str
+    score: float
+    rank: int
+
+
+class RankResponse(BaseModel):
+    query_id: str
+    method: str
+    top_k: int
+    ranked_items: list[RankedItem]
+    latency_ms: float
+
+
+class ItemSummary(BaseModel):
+    id: str
+    bt_score: Optional[float]
+
+
+class ItemsResponse(BaseModel):
+    n_total: int
+    items: list[ItemSummary]
+
+
+class EncodeResponse(BaseModel):
+    dim: int
+    embedding: list[float]
+    model: str
+    latency_ms: float
+
+
+# ---------------------------------------------------------------------------
+# In-memory state — populated at startup
+# ---------------------------------------------------------------------------
+class AppState:
+    embeddings: dict[str, np.ndarray] = {}
+    bt_scores: dict[str, float] = {}
+    nn_index = None  # sklearn NearestNeighbors built from embeddings
+    nn_ids: list[str] = []
+    embedding_model = None
+    embedding_model_name: str = "none"
+    bootstrap_mode: bool = False
+
+
+STATE = AppState()
+
+
+# ---------------------------------------------------------------------------
+# Loaders
+# ---------------------------------------------------------------------------
+def load_embeddings_npz(path: Path) -> dict[str, np.ndarray]:
+    """Load a `.npz` with one array per item: keys are item IDs."""
+    if not path.exists():
+        return {}
+    data = np.load(path, allow_pickle=True)
+    out = {}
+    for key in data.files:
+        arr = data[key]
+        out[key] = np.asarray(arr, dtype=np.float32).flatten()
+    return out
+
+
+def load_bt_scores(path: Path) -> dict[str, float]:
+    if not path.exists():
+        return {}
+    return {str(k): float(v) for k, v in json.loads(path.read_text()).items()}
+
+
+def build_nn_index(embeddings: dict[str, np.ndarray]):
+    """Build sklearn NearestNeighbors over L2-normalized vectors (cosine).
+
+    Handles small datasets gracefully by capping n_neighbors.
+    """
+    from sklearn.neighbors import NearestNeighbors
+
+    if not embeddings:
+        return None, []
+
+    ids = list(embeddings.keys())
+    n = len(ids)
+    matrix = np.stack([embeddings[i] for i in ids]).astype(np.float32)
+    # Normalize so cosine == dot product
+    norms = np.linalg.norm(matrix, axis=1, keepdims=True)
+    norms = np.where(norms == 0, 1.0, norms)
+    matrix = matrix / norms
+
+    n_neighbors = min(50, n)
+    index = NearestNeighbors(metric="cosine", n_neighbors=n_neighbors)
+    index.fit(matrix)
+    return index, ids
+
+
+def _clamp_top_k(requested: int, n_items: int) -> int:
+    """Clamp top_k to a safe value no larger than available items."""
+    return max(1, min(requested, n_items))
+
+
+def bootstrap_sample_state(n_items: int = 100, dim: int = EMBED_DIM, seed: int = 42) -> None:
+    """Populate STATE with deterministic synthetic data so server runs without artifacts."""
+    rng = np.random.default_rng(seed)
+    STATE.embeddings = {
+        f"sample_{i:03d}": rng.standard_normal(dim).astype(np.float32) for i in range(n_items)
+    }
+    # Synthetic BT scores — strong signal so ranking looks meaningful
+    STATE.bt_scores = {iid: float(rng.standard_normal()) for iid in STATE.embeddings}
+    STATE.bootstrap_mode = True
+    log.warning(
+    "Bootstrap mode active — serving %d synthetic items. Do NOT use in production.",
+    n_items,
+    )
+
+
+def load_siglip_lazy(model_name: str = "siglip") -> None:
+    """Lazy-load the embedding model on first /encode call."""
+    if STATE.embedding_model is not None:
+        return
+    log.info("Lazy-loading %s model on first /encode request...", model_name)
+    from src.feature_extraction.embedding import AppearanceEmbedding
+
+    STATE.embedding_model = AppearanceEmbedding(model_name=model_name)  # type: ignore[arg-type]
+    STATE.embedding_model.load()
+    STATE.embedding_model_name = model_name
+    log.info("Embedding model loaded on device: %s", STATE.embedding_model.device)
+
+
+# ---------------------------------------------------------------------------
+# Ranking logic
+# ---------------------------------------------------------------------------
+def _query_embedding_from_id(item_id: str) -> np.ndarray:
+    if item_id not in STATE.embeddings:
+        raise HTTPException(status_code=404, detail=f"Unknown image_id: {item_id}")
+    v = STATE.embeddings[item_id].astype(np.float32)
+    n = np.linalg.norm(v)
+    return v / n if n > 0 else v
+
+
+def _rank_embedding(query_vec: np.ndarray, top_k: int, exclude_self: bool, self_id: Optional[str]) -> list[RankedItem]:
+    if STATE.nn_index is None:
+        raise HTTPException(status_code=503, detail="No embeddings indexed.")
+    n_items = len(STATE.nn_ids)
+    safe_k = _clamp_top_k(top_k, n_items)
+    n_neighbors = min(safe_k + 1, n_items)
+    distances, indices = STATE.nn_index.kneighbors(query_vec.reshape(1, -1), n_neighbors=n_neighbors)
+    items: list[RankedItem] = []
+    for dist, idx in zip(distances[0], indices[0]):
+        cand_id = STATE.nn_ids[idx]
+        if exclude_self and self_id is not None and cand_id == self_id:
+            continue
+        items.append(RankedItem(id=cand_id, score=float(1.0 - dist), rank=len(items) + 1))
+        if len(items) >= safe_k:
+            break
+    return items
+
+
+def _rank_bt(top_k: int, exclude_self: bool, self_id: Optional[str]) -> list[RankedItem]:
+    if not STATE.bt_scores:
+        raise HTTPException(status_code=503, detail="No Bradley-Terry scores loaded.")
+    ordered = sorted(STATE.bt_scores.items(), key=lambda kv: kv[1], reverse=True)
+    items: list[RankedItem] = []
+    for item_id, score in ordered:
+        if exclude_self and self_id is not None and item_id == self_id:
+            continue
+        items.append(RankedItem(id=item_id, score=float(score), rank=len(items) + 1))
+        if len(items) >= top_k:
+            break
+    return items
+
+
+def _rank_combined(
+    query_vec: np.ndarray,
+    top_k: int,
+    alpha: float,
+    exclude_self: bool,
+    self_id: Optional[str],
+) -> list[RankedItem]:
+    """Combine cosine similarity and BT score via min-max normalization + weighted sum."""
+    if not STATE.bt_scores:
+        raise HTTPException(status_code=503, detail="No Bradley-Terry scores loaded.")
+    if STATE.nn_index is None:
+        raise HTTPException(status_code=503, detail="No embeddings indexed.")
+
+    # Pull a wide candidate pool (top_k * 5 or all items, whichever smaller)
+    n_total = len(STATE.nn_ids)
+    pool = min(top_k * 5, n_total)
+    distances, indices = STATE.nn_index.kneighbors(query_vec.reshape(1, -1), n_neighbors=pool)
+
+    sims: dict[str, float] = {}
+    for dist, idx in zip(distances[0], indices[0]):
+        cid = STATE.nn_ids[idx]
+        sims[cid] = float(1.0 - dist)
+
+    # Pull BT scores for the candidate pool
+    bt_vals = {cid: STATE.bt_scores.get(cid, 0.0) for cid in sims}
+
+    # Min-max normalize both into [0, 1]
+    def _norm(d: dict[str, float]) -> dict[str, float]:
+        if not d:
+            return {}
+        vals = list(d.values())
+        lo, hi = min(vals), max(vals)
+        if hi == lo:
+            return {k: 0.5 for k in d}
+        return {k: (v - lo) / (hi - lo) for k, v in d.items()}
+
+    sims_n = _norm(sims)
+    bt_n = _norm(bt_vals)
+
+    combined = {cid: alpha * sims_n[cid] + (1 - alpha) * bt_n[cid] for cid in sims_n}
+    ordered = sorted(combined.items(), key=lambda kv: kv[1], reverse=True)
+
+    items: list[RankedItem] = []
+    for cid, score in ordered:
+        if exclude_self and self_id is not None and cid == self_id:
+            continue
+        items.append(RankedItem(id=cid, score=float(score), rank=len(items) + 1))
+        if len(items) >= top_k:
+            break
+    return items
+
+
+# ---------------------------------------------------------------------------
+# Lifespan
+# ---------------------------------------------------------------------------
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    log.info("Starting Facense server...")
+    n_emb = len(STATE.embeddings)
+    n_bt = len(STATE.bt_scores)
+    if n_emb == 0:
+        log.warning(
+            "No embeddings found at %s. Pass --bootstrap-sample to run without data.",
+            EMBEDDINGS_PATH,
+        )
+    log.info("Loaded %d embeddings, %d BT scores (bootstrap=%s)",
+             n_emb, n_bt, STATE.bootstrap_mode)
+    yield
+    log.info("Shutting down Facense server.")
+
+
+# ---------------------------------------------------------------------------
+# App factory
+# ---------------------------------------------------------------------------
+def create_app() -> FastAPI:
+    app = FastAPI(
+        title="Facense — Visual Preference Ranking API",
+        description="Serves SigLIP embeddings + Bradley-Terry preference scores over HTTP.",
+        version="0.1.0",
+        lifespan=lifespan,
+    )
+
+    # CORS — read allowed origins from environment; default to localhost only.
+    cors_origins = os.getenv("FACENSE_CORS_ORIGINS", "http://localhost:3000,http://localhost:8080").split(",")
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=cors_origins if cors_origins != ["*"] else ["*"],
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    # Optional API-key authentication
+    _api_key = os.getenv("FACENSE_API_KEY", "").strip()
+
+    @app.middleware("http")
+    async def api_key_middleware(request, call_next):
+        if _api_key and request.url.path not in ("/", "/docs", "/openapi.json"):
+            if request.headers.get("X-API-Key") != _api_key:
+                from fastapi.responses import JSONResponse
+                return JSONResponse(status_code=401, content={"detail": "Missing or invalid API key. Set X-API-Key header."})
+        return await call_next(request)
+
+    # ---- routes ----
+    @app.get("/", response_model=dict)
+    def root() -> dict:
+        return {
+            "name": "Facense",
+            "version": app.version,
+            "endpoints": ["/health", "/items", "/rank", "/encode"],
+            "docs": "/docs",
+        }
+
+    @app.get("/health", response_model=HealthResponse)
+    def health() -> HealthResponse:
+        n_with_bt = sum(1 for k in STATE.embeddings if k in STATE.bt_scores)
+        return HealthResponse(
+            status="ok",
+            n_items=len(STATE.embeddings),
+            n_with_bt_score=n_with_bt,
+            embedding_model_loaded=STATE.embedding_model is not None,
+            bootstrap_mode=STATE.bootstrap_mode,
+        )
+
+    @app.get("/items", response_model=ItemsResponse)
+    def list_items(limit: int = 20, sort: Literal["bt_score", "id"] = "bt_score") -> ItemsResponse:
+        if sort == "bt_score" and STATE.bt_scores:
+            ordered = sorted(STATE.bt_scores.items(), key=lambda kv: kv[1], reverse=True)
+            ids = [k for k, _ in ordered]
+        else:
+            ids = sorted(STATE.embeddings.keys())
+        ids = ids[: max(1, min(limit, 200))]
+        return ItemsResponse(
+            n_total=len(STATE.embeddings),
+            items=[ItemSummary(id=i, bt_score=STATE.bt_scores.get(i)) for i in ids],
+        )
+
+    @app.post("/rank", response_model=RankResponse)
+    def rank(req: RankRequest) -> RankResponse:
+        if req.image_id is None and req.image_b64 is None:
+            raise HTTPException(status_code=400, detail="Provide either image_id or image_b64.")
+        if req.image_id is not None and req.image_b64 is not None:
+            raise HTTPException(status_code=400, detail="Provide only one of image_id or image_b64.")
+
+        # Validate base64 size (max 10 MB)
+        if req.image_b64 is not None and len(req.image_b64) > 10_000_000:
+            raise HTTPException(status_code=413, detail="Base64 payload too large (max 10 MB).")
+
+        t0 = time.perf_counter()
+        query_label = "image_b64"
+
+        if req.image_id is not None:
+            q_vec = _query_embedding_from_id(req.image_id)
+            query_label = req.image_id
+        else:
+            if Image is None:
+                raise HTTPException(status_code=500, detail="Pillow not installed.")
+            if STATE.embedding_model is None:
+                load_siglip_lazy("siglip")
+            try:
+                img_bytes = base64.b64decode(req.image_b64)
+                img = Image.open(io.BytesIO(img_bytes)).convert("RGB")
+            except Exception as exc:
+                raise HTTPException(status_code=400, detail=f"Invalid base64 image: {exc}") from exc
+            result = STATE.embedding_model.extract(img)  # type: ignore[union-attr]
+            q_vec = np.asarray(result.embedding, dtype=np.float32)
+            n = np.linalg.norm(q_vec)
+            q_vec = q_vec / n if n > 0 else q_vec
+
+        # Reject zero vectors (would break cosine similarity)
+        if np.linalg.norm(q_vec) < 1e-8:
+            raise HTTPException(status_code=400, detail="Zero vector — cannot rank.")
+
+        self_id = req.image_id
+        safe_top_k = _clamp_top_k(req.top_k, len(STATE.embeddings))
+        if req.method == "embedding":
+            ranked = _rank_embedding(q_vec, safe_top_k, req.exclude_self, self_id)
+        elif req.method == "bradley_terry":
+            ranked = _rank_bt(safe_top_k, req.exclude_self, self_id)
+        else:
+            ranked = _rank_combined(q_vec, safe_top_k, req.alpha, req.exclude_self, self_id)
+
+        latency_ms = (time.perf_counter() - t0) * 1000.0
+        return RankResponse(
+            query_id=query_label,
+            method=req.method,
+            top_k=safe_top_k,
+            ranked_items=ranked,
+            latency_ms=round(latency_ms, 3),
+        )
+
+    @app.post("/encode", response_model=EncodeResponse)
+    def encode(payload: dict) -> EncodeResponse:
+        if "image_b64" not in payload:
+            raise HTTPException(status_code=400, detail="Missing 'image_b64'.")
+        if Image is None:
+            raise HTTPException(status_code=500, detail="Pillow not installed.")
+        if STATE.embedding_model is None:
+            load_siglip_lazy("siglip")
+
+        t0 = time.perf_counter()
+        try:
+            img_bytes = base64.b64decode(payload["image_b64"])
+            img = Image.open(io.BytesIO(img_bytes)).convert("RGB")
+        except Exception as exc:
+            raise HTTPException(status_code=400, detail=f"Invalid base64 image: {exc}") from exc
+
+        result = STATE.embedding_model.extract(img)  # type: ignore[union-attr]
+        vec = np.asarray(result.embedding, dtype=np.float32)
+        latency_ms = (time.perf_counter() - t0) * 1000.0
+        return EncodeResponse(
+            dim=int(vec.size),
+            embedding=vec.tolist(),
+            model=STATE.embedding_model_name,
+            latency_ms=round(latency_ms, 3),
+        )
+
+    return app
+
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+def parse_args() -> argparse.Namespace:
+    p = argparse.ArgumentParser(description="Facense FastAPI server")
+    p.add_argument("--host", default="0.0.0.0", help="Bind host (default 0.0.0.0)")
+    p.add_argument("--port", type=int, default=DEFAULT_PORT, help=f"Port (default {DEFAULT_PORT})")
+    p.add_argument("--reload", action="store_true", help="Auto-reload on code changes")
+    p.add_argument(
+        "--bootstrap-sample",
+        action="store_true",
+        help="Generate synthetic embeddings + BT scores so the server runs without artifacts.",
+    )
+    p.add_argument("--embeddings", type=Path, default=EMBEDDINGS_PATH)
+    p.add_argument("--bt-scores", type=Path, default=BT_SCORES_PATH)
+    p.add_argument("--bootstrap-items", type=int, default=100)
+    return p.parse_args()
+
+
+def main() -> int:
+    args = parse_args()
+
+    # Refresh paths based on CLI
+    global EMBEDDINGS_PATH, BT_SCORES_PATH
+    EMBEDDINGS_PATH = args.embeddings
+    BT_SCORES_PATH = args.bt_scores
+
+    # Always try to load real artifacts first
+    real_emb = load_embeddings_npz(EMBEDDINGS_PATH)
+    real_bt = load_bt_scores(BT_SCORES_PATH)
+
+    if real_emb:
+        STATE.embeddings.update(real_emb)
+    if real_bt:
+        STATE.bt_scores.update(real_bt)
+
+    # Bootstrap synthetic data ONLY if --bootstrap-sample is explicitly passed.
+    # Without it, the server starts with whatever real data was loaded.
+    if args.bootstrap_sample:
+        bootstrap_sample_state(n_items=args.bootstrap_items)
+
+    # Build NN index
+    STATE.nn_index, STATE.nn_ids = build_nn_index(STATE.embeddings)
+
+    # Create app AFTER state is populated (lazy creation)
+    app = create_app()
+
+    # Run uvicorn
+    try:
+        import uvicorn
+    except ImportError:
+        log.error("uvicorn not installed. Run: pip install 'uvicorn[standard]'")
+        return 1
+
+    log.info("Uvicorn starting on http://%s:%d", args.host, args.port)
+    uvicorn.run(
+        app,
+        host=args.host,
+        port=args.port,
+        reload=args.reload,
+        log_level="info",
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

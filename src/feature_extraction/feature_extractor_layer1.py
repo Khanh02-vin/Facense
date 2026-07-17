@@ -60,10 +60,15 @@ class VideoFeatures:
             "video_id": self.video_id,
             "motion_energy": float(self.motion_energy),
             "motion_peak": float(self.motion_peak),
+            "motion_variance": float(self.motion_variance),
             "blur_score": float(self.blur_score),
             "brightness": float(self.brightness),
+            "brightness_std": float(self.brightness_std),
             "face_visibility": float(self.face_visibility),
             "face_detected": bool(self.face_detected),
+            "face_bbox": [int(v) for v in self.face_bbox],
+            "n_frames": int(self.n_frames),
+            "duration_seconds": float(self.duration_seconds),
         }
 
 

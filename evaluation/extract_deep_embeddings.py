@@ -179,8 +179,22 @@ def run_extraction(
         with open(meta_file, 'w') as f:
             json.dump(metadata, f, indent=2)
 
+        # Save embeddings as npz (keyed by item ID for serve.py compatibility)
+        import os
+        from collections import OrderedDict
+        embeddings_npz = OrderedDict()
+        for i, (emb, ident) in enumerate(zip(embeddings, identities)):
+            # Use identity as key; append frame index to handle duplicates
+            key = f"{ident}_{i}" if identities.count(ident) > 1 else ident
+            embeddings_npz[key] = emb.astype(np.float32).flatten()
+
+        output_npz = os.path.join(output_dir, "embeddings.npz")
+        np.savez(output_npz, **embeddings_npz)
+        print(f"    Saved npz (serve-ready) to: {output_npz}")
+
         # Save identity mapping
-        identity_map = {i: ident for i, ident in enumerate(identities)}
+        identity_map = {key: ident for key, ident in zip(embeddings_npz.keys(), identities)}
+        map_file = os.path.join(output_dir, f"image_to_identity_{model_name}.json")
         map_file = os.path.join(output_dir, f"image_to_identity_{model_name}.json")
         with open(map_file, 'w', encoding='utf-8') as f:
             json.dump(identity_map, f, indent=2, ensure_ascii=False)

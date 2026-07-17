@@ -22,16 +22,22 @@ from collections import defaultdict
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
+# Paths
+from evaluation._paths import PROCESSED_DIR, ANNOTATIONS_DIR
+EMBEDDINGS_FILE = PROCESSED_DIR / "embeddings_siglip_multiframe.npy"
+IDENTITY_MAP_FILE = PROCESSED_DIR / "image_to_identity_multiframe.json"
+ANNOTATIONS_FILE = ANNOTATIONS_DIR / "annotations_result.json"
+
 # Load data
-embeddings = np.load('./data/processed/embeddings_siglip_multiframe.npy')
+embeddings = np.load(str(EMBEDDINGS_FILE))
 if embeddings.ndim == 4:
     embeddings = embeddings.mean(axis=2).squeeze(1)
 print(f"Embeddings: {embeddings.shape}")
 
-with open('./data/processed/image_to_identity_multiframe.json', 'r', encoding='utf-8') as f:
+with open(str(IDENTITY_MAP_FILE), 'r', encoding='utf-8') as f:
     identity_map = json.load(f)
 
-with open('./data/annotations/annotations_result.json', 'r', encoding='utf-8') as f:
+with open(str(ANNOTATIONS_FILE), 'r', encoding='utf-8') as f:
     annotations = json.load(f)
 
 # Build identity → mean embedding

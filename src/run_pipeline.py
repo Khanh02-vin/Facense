@@ -26,10 +26,11 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from src.feature_extraction.feature_extractor_layer1 import FeatureExtractorLayer1
 from src.feature_extraction.feature_extractor_layer2 import FeatureExtractorLayer2
+from src.frame_extraction.frame_sampler import FrameSampler
 
 
-DATASET_DIR = Path("D:/Dataset/Face_project_datset")
-OUTPUT_DIR = Path("D:/Project/Face_project/data/dataset_processed")
+DATASET_DIR = Path(os.getenv("DATASET_DIR", "D:/Dataset/Face_project_datset"))
+OUTPUT_DIR = Path(os.getenv("OUTPUT_DIR", "./data/dataset_processed"))
 CLIPS_DIR = OUTPUT_DIR / "clips"
 FEATURES_FILE = OUTPUT_DIR / "features.json"
 
@@ -43,26 +44,34 @@ class DatasetPipeline:
     4. Save for labeling
     """
 
-    def __init__(self):
+    def __init__(self, dataset_dir: Path = DATASET_DIR, output_dir: Path = OUTPUT_DIR):
+        self.dataset_dir = Path(dataset_dir)
+        self.output_dir = Path(output_dir)
+        self.clips_dir = self.output_dir / "clips"
+        self.features_file = self.output_dir / "features.json"
         self.extractor_l1 = FeatureExtractorLayer1()
         self.extractor_l2 = FeatureExtractorLayer2()
+        self.frame_sampler = FrameSampler(strategy="combined", max_frames=30)
 
         # Create output directories
-        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-        CLIPS_DIR.mkdir(parents=True, exist_ok=True)
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.clips_dir.mkdir(parents=True, exist_ok=True)
 
         print("="*60)
         print("DATASET PIPELINE")
         print("="*60)
-        print(f"Dataset: {DATASET_DIR}")
-        print(f"Output: {OUTPUT_DIR}")
+        print(f"Dataset: {self.dataset_dir}")
+        print(f"Output: {self.output_dir}")
 
     def scan_videos(self) -> List[Dict]:
         """Scan dataset for videos."""
         print("\n[1] Scanning videos...")
 
         videos = []
-        for identity_dir in sorted(DATASET_DIR.iterdir()):
+        if not self.dataset_dir.exists():
+            raise FileNotFoundError(f"Dataset directory not found: {self.dataset_dir}")
+
+        for identity_dir in sorted(self.dataset_dir.iterdir()):
             if not identity_dir.is_dir():
                 continue
 
@@ -112,9 +121,26 @@ class DatasetPipeline:
         total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         fps = cap.get(cv2.CAP_PROP_FPS)
 
-        # Sample frames uniformly
-        frame_indices = np.linspace(0, total_frames - 1, max_frames, dtype=int)
+        cap.release()
+        if total_frames <= 0:
+            return [], {'total_frames': 0, 'fps': fps, 'clip_saved': False}
 
+        # Prefer shared adaptive sampler; fall back to uniform sampling on failure.
+        try:
+            sampled = self.frame_sampler.sample(video_path)
+            frame_indices = [item.frame_index for item in sampled]
+        except Exception as exc:
+            print(f"\n  [WARN] Adaptive sampling failed for {clip_name}: {exc}")
+            frame_indices = []
+
+        if not frame_indices:
+            frame_indices = np.linspace(
+                0, total_frames - 1, min(max_frames, total_frames), dtype=int
+            ).tolist()
+        else:
+            frame_indices = frame_indices[:max_frames]
+
+        cap = cv2.VideoCapture(video_path)
         frames = []
         for idx in frame_indices:
             cap.set(cv2.CAP_PROP_POS_FRAMES, idx)

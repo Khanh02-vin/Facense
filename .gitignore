@@ -1,3 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+*.pkl
+*.np[yz]
+
+# IDE & AI
+.claude/
+.idea/
+.vscode/
+
+# Project data (user-generated)
+data/
+models/
+results/
+
+# Environment
+.env
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Test & cache
+.pytest_cache/
+
+# Documentation (track only README.md in root)
 *.md
-Dockerfile
-docker-compose.yml
+!/README.md

@@ -1,0 +1,144 @@
+# ============================================================
+# Facense — Docker Compose
+#
+# Usage:
+#   docker compose -f docker/docker-compose.yml up <service>
+#
+# Available services:
+#   pipeline       — run full pipeline (scan → extract → features → pairs)
+#   embeddings     — extract deep embeddings (SigLIP / CLIP / DINOv2)
+#   rsa            — run RSA evaluation (requires human similarity CSV)
+#   evaluate       — run evaluation suite
+#   shell          — interactive shell for debugging
+# ============================================================
+
+services:
+
+  # ──────────────────────────────────────────────
+  # 1. Full Pipeline
+  # ──────────────────────────────────────────────
+  pipeline:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: facense-pipeline
+    volumes:
+      - ../src:/workspace/src:ro
+      # Dataset — READ ONLY
+      - ${DATASET_DIR:-./data/raw}:/data/Face_project_dataset:ro
+      # Output
+      - ../data:/workspace/data
+      - ../results:/workspace/results
+      - ../evaluation:/workspace/evaluation:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-}
+      - DATASET_DIR=/data/Face_project_dataset
+      - OUTPUT_DIR=/workspace/data/dataset_processed
+    working_dir: /workspace
+    command: >
+      python src/run_pipeline.py
+      --max ${MAX_VIDEOS:-}
+      --pairs ${NUM_PAIRS:-50}
+    profiles:
+      - full
+
+  # ──────────────────────────────────────────────
+  # 2. Deep Embedding Extraction
+  # ──────────────────────────────────────────────
+  embeddings:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: facense-embeddings
+    volumes:
+      - ${DATASET_DIR:-./data/raw}:/data/Face_project_dataset:ro
+      - ../data:/workspace/data
+      - ../results:/workspace/results
+      - ../src:/workspace/src:ro
+      - ../evaluation:/workspace/evaluation:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-}
+    working_dir: /workspace
+    command: >
+      python evaluation/extract_deep_embeddings.py
+      --dataset_dir /data/Face_project_dataset
+      --output_dir /workspace/data/processed
+      --models ${EMBEDDING_MODELS:-siglip}
+    profiles:
+      - embeddings
+
+  # ──────────────────────────────────────────────
+  # 3. RSA Evaluation (depends on embeddings)
+  # ──────────────────────────────────────────────
+  rsa:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: facense-rsa
+    volumes:
+      - ../data:/workspace/data
+      - ../results:/workspace/results
+      - ../src:/workspace/src:ro
+      - ../evaluation:/workspace/evaluation:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    working_dir: /workspace
+    command: >
+      python evaluation/run_rsa_deep_embeddings.py
+      --data_dir /workspace/data/processed
+      --output_dir /workspace/results
+      ${RSA_SYNTHETIC:+--synthetic}
+    profiles:
+      - rsa
+    depends_on:
+      embeddings:
+        condition: service_completed_successfully
+
+  # ──────────────────────────────────────────────
+  # 4. Evaluation Suite
+  # ──────────────────────────────────────────────
+  evaluate:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: facense-evaluate
+    volumes:
+      - ../src:/workspace/src:ro
+      - ../data:/workspace/data
+      - ../results:/workspace/results
+      - ../evaluation:/workspace/evaluation:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    working_dir: /workspace
+    command: >
+      python evaluation/run_evaluation.py
+      --data_dir /workspace/data
+      --output_dir /workspace/results
+      ${EVAL_SYNTHETIC:+--synthetic}
+    profiles:
+      - evaluate
+
+  # ──────────────────────────────────────────────
+  # 5. Interactive shell (for debugging)
+  # ──────────────────────────────────────────────
+  shell:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: facense-shell
+    volumes:
+      - ../src:/workspace/src
+      - ../data:/workspace/data
+      - ../results:/workspace/results
+      - ../evaluation:/workspace/evaluation
+      - ${DATASET_DIR:-./data/raw}:/data/Face_project_dataset:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    profiles:
+      - shell
+    command: ["bash"]

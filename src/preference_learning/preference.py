@@ -12,6 +12,7 @@ from typing import Optional, Literal
 from dataclasses import dataclass
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
+from scipy.optimize import minimize
 
 
 @dataclass
@@ -36,123 +37,110 @@ class BradleyTerryResult:
 class BradleyTerryModel:
     """Bradley-Terry model for pairwise preferences.
 
-    Models P(i > j) = sigmoid(w_i - w_j) where w_i is item strength.
+    Models P(i > j) = σ(w_i - w_j) where w_i is item strength.
+    Fitted via maximum-likelihood with scipy.optimize.
     """
 
     def __init__(
         self,
-        max_iterations: int = 100,
-        tol: float = 1e-6,
-        alpha: float = 0.0
+        max_iterations: int = 500,
+        tol: float = 1e-8,
+        alpha: float = 0.0,
     ):
         """
         Args:
-            max_iterations: Maximum EM iterations
-            tol: Convergence tolerance
-            alpha: Regularization strength
+            max_iterations: Maximum solver iterations.
+            tol: Convergence tolerance for solver.
+            alpha: L2 regularisation strength (0 = no regularisation).
         """
         self.max_iterations = max_iterations
         self.tol = tol
         self.alpha = alpha
-        self.item_scores = {}
+        self.item_scores: dict[str, float] = {}
         self.convergence = False
         self.n_iterations = 0
 
     def fit(self, pairs: list[PairwiseSample]) -> BradleyTerryResult:
-        """Fit Bradley-Terry model.
+        """Fit Bradley-Terry model via NLL minimisation.
 
         Args:
-            pairs: List of pairwise comparisons
+            pairs: List of pairwise comparisons.
 
         Returns:
-            BradleyTerryResult with item strengths
+            BradleyTerryResult with item strengths.
         """
         if not pairs:
             return BradleyTerryResult(
                 item_scores={},
                 convergence=True,
                 n_iterations=0,
-                log_likelihood=0.0
+                log_likelihood=0.0,
             )
 
-        # Collect all items
-        items = set()
-        for pair in pairs:
-            items.add(pair.image_A)
-            items.add(pair.image_B)
-
-        # Initialize scores
-        item_scores = {item: 0.0 for item in items}
-        log_likelihoods = []
-
+        # Collect all items in encounter order so indices are stable.
+        items = sorted({pair.image_A for pair in pairs} | {pair.image_B for pair in pairs})
         n = len(items)
+        item_to_idx = {item: i for i, item in enumerate(items)}
 
-        for iteration in range(self.max_iterations):
-            # E-step: compute expected counts
-            exp_counts = {item: 0.0 for item in items}
-            total_counts = {item: 0.0 for item in items}
-            ll = 0.0
+        # Build arrays for the NLL evaluator.
+        # Convention: for each pair (winner_idx, loser_idx), sigmoid(w_winner - w_loser).
+        pair_indices: list[tuple[int, int]] = []
+        for pair in pairs:
+            i = item_to_idx[pair.image_A]
+            j = item_to_idx[pair.image_B]
+            if i == j:
+                continue
+            if pair.winner == "A":
+                pair_indices.append((i, j))  # A wins
+            elif pair.winner == "B":
+                pair_indices.append((j, i))  # B wins (swap so winner is first)
+            # Skip "equal" or invalid choices
 
-            for pair in pairs:
-                i, j = pair.image_A, pair.image_B
-                diff = item_scores[i] - item_scores[j]
-
-                # sigmoid
-                prob_i = 1 / (1 + np.exp(-diff))
-                prob_i = np.clip(prob_i, 1e-10, 1 - 1e-10)
-
-                # Weighted by winner
-                if pair.winner == "A":
-                    exp_counts[i] += prob_i
-                    exp_counts[j] += (1 - prob_i)
-                else:
-                    exp_counts[i] += (1 - prob_i)
-                    exp_counts[j] += prob_i
-
-                total_counts[i] += 1
-                total_counts[j] += 1
-
-                # Log-likelihood
-                if pair.winner == "A":
-                    ll += np.log(prob_i)
-                else:
-                    ll += np.log(1 - prob_i)
-
-            log_likelihoods.append(ll)
-
-            # M-step: update scores with regularization
-            prev_scores = item_scores.copy()
-
-            for item in items:
-                if total_counts[item] > 0:
-                    # Bradley-Terry update with regularization toward 0
-                    item_scores[item] = exp_counts[item] / total_counts[item]
-                    # Add regularization
-                    item_scores[item] = (1 - self.alpha) * item_scores[item]
-
-            # Center scores (identifiability constraint)
-            mean_score = np.mean(list(item_scores.values()))
-            for item in items:
-                item_scores[item] -= mean_score
-
-            # Check convergence
-            delta = sum(
-                abs(item_scores[i] - prev_scores[i])
-                for i in items
+        if not pair_indices:
+            return BradleyTerryResult(
+                item_scores={item: 0.0 for item in items},
+                convergence=True,
+                n_iterations=0,
+                log_likelihood=0.0,
             )
 
-            if delta < self.tol:
-                self.convergence = True
-                self.n_iterations = iteration + 1
-                break
+        i_idx = np.array([p[0] for p in pair_indices], dtype=np.int32)
+        j_idx = np.array([p[1] for p in pair_indices], dtype=np.int32)
 
-        self.item_scores = item_scores
+        def nll(w: np.ndarray) -> float:
+            # P(winner beats loser) = sigmoid(w_winner - w_loser)
+            diff = w[i_idx] - w[j_idx]
+            diff = np.clip(diff, -30.0, 30.0)
+            prob = 1.0 / (1.0 + np.exp(-diff))
+            prob = np.clip(prob, 1e-15, 1.0 - 1e-15)
+            loss = -np.sum(np.log(prob))
+            if self.alpha > 0.0:
+                loss += 0.5 * self.alpha * np.sum(w ** 2)
+            return loss
+
+        # Initialise at zero (equal strengths).
+        w0 = np.zeros(n, dtype=np.float64)
+
+        result = minimize(
+            nll,
+            w0,
+            method="L-BFGS-B",
+            options={"maxiter": self.max_iterations, "ftol": self.tol, "gtol": self.tol},
+        )
+
+        w_opt = result.x.astype(np.float64)
+        # Centre scores (identifiability constraint): sum(w) = 0.
+        w_opt = w_opt - np.mean(w_opt)
+
+        self.item_scores = {item: float(w_opt[idx]) for item, idx in item_to_idx.items()}
+        self.convergence = result.success
+        self.n_iterations = int(result.nit)
 
         return BradleyTerryResult(
-            item_scores=item_scores,
+            item_scores=self.item_scores,
             convergence=self.convergence,
             n_iterations=self.n_iterations,
-            log_likelihood=log_likelihoods[-1] if log_likelihoods else 0.0
+            log_likelihood=float(-result.fun),
         )
 
     def predict_pair(self, image_A: str, image_B: str) -> float:
@@ -233,18 +221,23 @@ class NeuralRewardModel:
         batch_size: int = 32,
         validation_split: float = 0.2
     ) -> dict:
-        """Train reward model.
+        """Train reward model with utility-pairwise loss.
+
+        The network f(·) is trained so that:
+            sigmoid(f(emb_A) - f(emb_B)) ≈ P(A beats B)
+
+        This keeps predict(embedding) and predict_pair() consistent.
 
         Args:
-            embeddings_A: (n_pairs, embedding_dim) embeddings of image A
-            embeddings_B: (n_pairs, embedding_dim) embeddings of image B
-            winners: (n_pairs,) 1 if A wins, 0 if B wins
-            epochs: Training epochs
-            batch_size: Batch size
-            validation_split: Fraction for validation
+            embeddings_A: (n_pairs, embedding_dim) embeddings of image A.
+            embeddings_B: (n_pairs, embedding_dim) embeddings of image B.
+            winners: (n_pairs,) 1 if A wins, 0 if B wins.
+            epochs: Training epochs.
+            batch_size: Batch size.
+            validation_split: Fraction for validation.
 
         Returns:
-            Training history dict
+            Training history dict.
         """
         import torch
         import torch.nn as nn
@@ -252,17 +245,16 @@ class NeuralRewardModel:
 
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-        # Build model
+        # Build model — maps single embedding → scalar score
         self.model = self._build_model().to(device)
         optimizer = torch.optim.Adam(self.model.parameters(), lr=self.lr)
-        criterion = nn.BCEWithLogitsLoss()
 
-        # Prepare data
-        X_diff = embeddings_A - embeddings_B  # Difference feature
-        dataset = TensorDataset(
-            torch.FloatTensor(X_diff),
-            torch.FloatTensor(winners)
-        )
+        # Prepare data: input is (emb_A, emb_B), label is 1 if A > B else 0
+        X_A = torch.FloatTensor(embeddings_A)
+        X_B = torch.FloatTensor(embeddings_B)
+        y = torch.FloatTensor(winners)
+
+        dataset = TensorDataset(X_A, X_B, y)
 
         n_train = int(len(dataset) * (1 - validation_split))
         train_ds, val_ds = torch.utils.data.random_split(
@@ -277,13 +269,16 @@ class NeuralRewardModel:
         for epoch in range(epochs):
             # Training
             self.model.train()
-            train_loss = 0
-            for X_batch, y_batch in train_loader:
-                X_batch, y_batch = X_batch.to(device), y_batch.to(device)
+            train_loss = 0.0
+            for emb_A, emb_B, label in train_loader:
+                emb_A, emb_B, label = emb_A.to(device), emb_B.to(device), label.to(device)
 
                 optimizer.zero_grad()
-                logits = self.model(X_batch).squeeze()
-                loss = criterion(logits, y_batch)
+                score_A = self.model(emb_A).squeeze()
+                score_B = self.model(emb_B).squeeze()
+                # sigmoid(score_A - score_B) = P(A > B)
+                logits = score_A - score_B
+                loss = nn.BCEWithLogitsLoss()(logits, label)
                 loss.backward()
                 optimizer.step()
                 train_loss += loss.item()
@@ -294,22 +289,44 @@ class NeuralRewardModel:
             self.model.eval()
             val_preds, val_labels = [], []
             with torch.no_grad():
-                for X_batch, y_batch in val_loader:
-                    X_batch = X_batch.to(device)
-                    logits = self.model(X_batch).squeeze()
-                    probs = torch.sigmoid(logits).cpu().numpy()
-                    val_preds.extend(probs)
-                    val_labels.extend(y_batch.numpy())
+                for emb_A, emb_B, label in val_loader:
+                    emb_A, emb_B = emb_A.to(device), emb_B.to(device)
+                    score_A = self.model(emb_A).squeeze()
+                    score_B = self.model(emb_B).squeeze()
+                    probs = torch.sigmoid(score_A - score_B).cpu().numpy()
+                    probs = np.atleast_1d(probs)
+                    val_preds.extend(probs.tolist())
+                    val_labels.extend(label.numpy().tolist())
 
             try:
                 val_auc = roc_auc_score(val_labels, val_preds)
-            except:
+            except Exception:
                 val_auc = 0.5
             history["val_auc"].append(val_auc)
 
         self.is_fitted = True
         self.device = device
         return history
+
+    def predict_pair(self, emb_A: np.ndarray, emb_B: np.ndarray) -> float:
+        """Predict P(A beats B) from a pair of embeddings.
+
+        Args:
+            emb_A: embedding of image A.
+            emb_B: embedding of image B.
+
+        Returns:
+            Probability in [0, 1].
+        """
+        if not self.is_fitted:
+            return 0.5
+        import torch
+        self.model.eval()
+        with torch.no_grad():
+            ta = torch.FloatTensor(emb_A).unsqueeze(0).to(self.device)
+            tb = torch.FloatTensor(emb_B).unsqueeze(0).to(self.device)
+            diff = self.model(ta) - self.model(tb)
+            return float(torch.sigmoid(diff).item())
 
     def predict(self, embedding: np.ndarray) -> float:
         """Predict reward for single embedding.

@@ -1,218 +1,136 @@
 """
 Train Bradley-Terry Model with Real Preferences
 
-Uses the 23 preference edges from human annotations to fit Bradley-Terry model.
+Uses the centralized BradleyTerryModel from the preference module.
+Outputs both detailed debug output and serve-ready bradley_terry_scores.json.
+
+Usage:
+    python evaluation/train_bradley_terry.py \
+        --annotations ./data/annotations/annotations_result.json \
+        --embeddings ./data/processed/embeddings.npz \
+        --output ./data/processed/bradley_terry_scores.json
 """
 
+import argparse
 import json
-import numpy as np
-from scipy.optimize import minimize
-from collections import defaultdict
 import sys
-sys.stdout.reconfigure(encoding='utf-8')
+from collections import defaultdict
+from pathlib import Path
 
-# Load annotations
-with open('./data/annotations/annotations_result.json', 'r', encoding='utf-8') as f:
-    annotations = json.load(f)
+import numpy as np
 
-# Load SigLIP embeddings
-embeddings_file = './data/processed/embeddings_siglip_multiframe.npy'
-identity_file = './data/processed/image_to_identity_multiframe.json'
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from src.preference_learning.preference import BradleyTerryModel, PairwiseSample
 
-embeddings = np.load(embeddings_file)
-if embeddings.ndim == 4:
-    embeddings = embeddings.mean(axis=2).squeeze(1)
 
-# Normalize
-norms = np.linalg.norm(embeddings, axis=1, keepdims=True) + 1e-10
-embeddings = embeddings / norms
+def load_annotations(path: Path) -> list[dict]:
+    with open(path, 'r', encoding='utf-8') as f:
+        return json.load(f)
 
-with open(identity_file, 'r', encoding='utf-8') as f:
-    identity_map = json.load(f)
 
-# Build identity -> index mapping (first occurrence)
-identity_to_idx = {}
-idx_to_identity = {}
-for idx, ident in identity_map.items():
-    idx_int = int(idx)
-    if ident not in identity_to_idx:
-        identity_to_idx[ident] = idx_int
-        idx_to_identity[idx_int] = ident
+def load_embeddings_npz(path: Path) -> dict[str, np.ndarray]:
+    """Load .npz and return {item_id: normalized_embedding}."""
+    data = np.load(path, allow_pickle=True)
+    out = {}
+    for key in data.files:
+        vec = np.asarray(data[key], dtype=np.float32).flatten()
+        norm = np.linalg.norm(vec)
+        out[key] = vec / norm if norm > 0 else vec
+    return out
 
-print("="*50)
-print("BRADLEY-TERRY MODEL TRAINING")
-print("="*50)
 
-# Build preference pairs from annotations
-pairs = []
-for a in annotations:
-    if a['choice'] == 'A':
-        winner = a['identity_A']
-        loser = a['identity_B']
-    elif a['choice'] == 'B':
-        winner = a['identity_B']
-        loser = a['identity_A']
-    else:
-        continue  # Skip equal
+def build_paiwise_samples(
+    annotations: list[dict],
+    item_ids: set[str],
+) -> list[PairwiseSample]:
+    """Convert annotation records to PairwiseSample list.
 
-    if winner in identity_to_idx and loser in identity_to_idx:
-        pairs.append((identity_to_idx[winner], identity_to_idx[loser]))
-
-print("\n[1] Data Summary")
-print("    Preference pairs: %d" % len(pairs))
-print("    Unique identities: %d" % len(identity_to_idx))
-
-# Get unique identities in pairs
-unique_ids = set()
-for w, l in pairs:
-    unique_ids.add(w)
-    unique_ids.add(l)
-print("    Identities in pairs: %d" % len(unique_ids))
-
-# Bradley-Terry Negative Log-Likelihood
-def nll(theta, n_items, pairs, wins, losses):
-    """Negative log-likelihood for Bradley-Terry."""
-    theta = np.exp(theta)  # Ensure positive strengths
-    total = 0.0
-    for i, j in pairs:
-        if i >= n_items or j >= n_items:
+    Expected annotation fields: identity_A, identity_B, choice ('A'/'B'/'equal').
+    """
+    samples: list[PairwiseSample] = []
+    for a in annotations:
+        winner = a.get('choice')
+        if winner not in ('A', 'B'):
+            continue  # skip equal / invalid
+        id_a = a.get('identity_A', '')
+        id_b = a.get('identity_B', '')
+        if id_a not in item_ids or id_b not in item_ids:
             continue
-        prob = theta[i] / (theta[i] + theta[j])
-        total -= np.log(prob + 1e-10)
-    return total
+        samples.append(
+            PairwiseSample(
+                user_id=a.get('annotator_id', 'unknown'),
+                image_A=id_a,
+                image_B=id_b,
+                winner=winner,
+            )
+        )
+    return samples
 
-# Prepare data
-n_items = len(embeddings)
-theta_init = np.ones(n_items)
 
-# Build counts: wins[i] = times i beat j, losses[i] = times i lost to j
-wins = defaultdict(int)
-losses = defaultdict(int)
-pair_counts = defaultdict(int)
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Train Bradley-Terry Model")
+    parser.add_argument('--annotations', type=Path,
+                        default=Path('./data/annotations/annotations_result.json'))
+    parser.add_argument('--embeddings', type=Path,
+                        default=Path('./data/processed/embeddings.npz'))
+    parser.add_argument('--output', type=Path,
+                        default=Path('./data/processed/bradley_terry_scores.json'))
+    parser.add_argument('--alpha', type=float, default=0.0,
+                        help='L2 regularisation strength')
+    args = parser.parse_args()
 
-for w, l in pairs:
-    pair_counts[(w, l)] += 1
-    wins[w] += 1
-    losses[l] += 1
+    print("=" * 50)
+    print("BRADLEY-TERRY MODEL TRAINING")
+    print("=" * 50)
 
-print("\n[2] Pair Counts")
-print("    Total unique pairs: %d" % len(pair_counts))
-for (w, l), count in sorted(pair_counts.items(), key=lambda x: -x[1])[:5]:
-    print("    %s > %s: %d" % (idx_to_identity[w][:15], idx_to_identity[l][:15], count))
+    # 1. Load data
+    annotations = load_annotations(args.annotations)
+    embeddings_dict = load_embeddings_npz(args.embeddings)
+    item_ids = set(embeddings_dict.keys())
 
-# Fit Bradley-Terry using gradient descent
-print("\n[3] Fitting Bradley-Terry Model")
+    print(f"\n[1] Data")
+    print(f"    Annotations: {len(annotations)}")
+    print(f"    Items in embedding index: {len(item_ids)}")
 
-def objective(theta):
-    theta = np.exp(theta)
-    total = 0.0
-    for w, l in pairs:
-        prob = theta[w] / (theta[w] + theta[l] + 1e-10)
-        total -= np.log(prob + 1e-10)
-    # Add L2 regularization
-    total += 0.001 * np.sum(theta**2)
-    return total
+    # 2. Build pairwise samples
+    samples = build_paiwise_samples(annotations, item_ids)
+    print(f"    Valid pairwise samples: {len(samples)}")
 
-def gradient(theta):
-    theta = np.exp(theta)
-    grad = np.zeros_like(theta)
-    for w, l in pairs:
-        denom = theta[w] + theta[l] + 1e-10
-        grad[w] -= 1/theta[w] * (1 - theta[w]/denom)
-        grad[l] -= 1/theta[l] * (-theta[l]/denom)
-    grad += 0.002 * theta
-    return grad * np.exp(theta)
+    if not samples:
+        print("[!] No valid pairs. Cannot train.")
+        return 1
 
-# Optimize
-result = minimize(
-    objective,
-    np.zeros(n_items),
-    method='L-BFGS-B',
-    jac=gradient,
-    options={'maxiter': 1000, 'disp': False}
-)
+    # 3. Fit model
+    print(f"\n[2] Fitting Bradley-Terry (alpha={args.alpha}) ...")
+    bt = BradleyTerryModel(alpha=args.alpha)
+    result = bt.fit(samples)
 
-theta_hat = np.exp(result.x)
+    print(f"    Converged: {result.convergence}")
+    print(f"    Iterations: {result.n_iterations}")
+    print(f"    Log-likelihood: {result.log_likelihood:.4f}")
+    print(f"    Items scored: {len(result.item_scores)}")
 
-print("    Optimization converged: %s" % result.success)
-print("    Final NLL: %.4f" % result.fun)
+    # 4. Show top / bottom
+    sorted_items = sorted(result.item_scores.items(), key=lambda kv: kv[1], reverse=True)
+    print(f"\n[3] Top 10 items")
+    for name, score in sorted_items[:10]:
+        print(f"    {name:<30s} {score:+.4f}")
 
-# Rank by strength
-strengths = []
-for i in range(n_items):
-    if i in unique_ids:
-        strengths.append((idx_to_identity[i], theta_hat[i], wins[i], losses[i]))
+    print(f"\n[4] Bottom 5 items")
+    for name, score in sorted_items[-5:]:
+        print(f"    {name:<30s} {score:+.4f}")
 
-strengths.sort(key=lambda x: -x[1])
+    # 5. Save serve-ready scores
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    with open(args.output, 'w', encoding='utf-8') as f:
+        json.dump(dict(sorted_items), f, indent=2, ensure_ascii=False)
+    print(f"\n[5] Saved serve-ready scores to: {args.output}")
 
-print("\n[4] Top 20 by Bradley-Terry Strength")
-print("    %-25s %8s %4s %4s" % ("Identity", "Strength", "W", "L"))
-print("    " + "-"*45)
-for name, strength, w, l in strengths[:20]:
-    print("    %-25s %8.3f %4d %4d" % (name[:25], strength, w, l))
+    print("\n" + "=" * 50)
+    print("DONE!")
+    print("=" * 50)
+    return 0
 
-# Evaluate: predict held-out pairs
-print("\n[5] Model Evaluation")
 
-# Split pairs for train/test
-np.random.seed(42)
-indices = np.random.permutation(len(pairs))
-train_size = int(0.7 * len(pairs))
-train_pairs = [pairs[i] for i in indices[:train_size]]
-test_pairs = [pairs[i] for i in indices[train_size:]]
-
-print("    Train pairs: %d" % len(train_pairs))
-print("    Test pairs: %d" % len(test_pairs))
-
-# Retrain on train only
-def objective_train(theta):
-    theta = np.exp(theta)
-    total = 0.0
-    for w, l in train_pairs:
-        prob = theta[w] / (theta[w] + theta[l] + 1e-10)
-        total -= np.log(prob + 1e-10)
-    return total
-
-result_train = minimize(objective_train, np.zeros(n_items), method='L-BFGS-B')
-theta_train = np.exp(result_train.x)
-
-# Predict test pairs
-correct = 0
-for w, l in test_pairs:
-    if theta_train[w] > theta_train[l]:
-        correct += 1
-
-if len(test_pairs) > 0:
-    accuracy = correct / len(test_pairs)
-    print("    Test accuracy: %.1f%%" % (100 * accuracy))
-else:
-    print("    Not enough pairs for train/test split")
-
-# Save model
-print("\n[6] Saving Model")
-model_data = {
-    'theta': theta_hat.tolist(),
-    'n_items': n_items,
-    'n_pairs': len(pairs),
-    'idx_to_identity': idx_to_identity,
-    'rankings': [
-        {'identity': name, 'strength': float(strength), 'wins': w, 'losses': l}
-        for name, strength, w, l in strengths[:50]
-    ]
-}
-
-with open('./data/annotations/bradley_terry_model.json', 'w', encoding='utf-8') as f:
-    json.dump(model_data, f, ensure_ascii=False, indent=2)
-
-print("    Saved to: data/annotations/bradley_terry_model.json")
-
-# Save embeddings for ranked identities
-ranked_indices = [identity_to_idx[s[0]] for s in strengths[:50] if s[0] in identity_to_idx]
-ranked_embeddings = embeddings[ranked_indices]
-
-np.save('./data/annotations/top_preferred_embeddings.npy', ranked_embeddings)
-print("    Saved embeddings: data/annotations/top_preferred_embeddings.npy")
-
-print("\n" + "="*50)
-print("DONE!")
-print("="*50)
+if __name__ == "__main__":
+    sys.exit(main())
