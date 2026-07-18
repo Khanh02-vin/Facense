@@ -124,7 +124,7 @@ class FeatureExtractorLayer2:
                 ])
 
                 from mediapipe.tasks.python.vision import FaceLandmarker, FaceLandmarkerOptions
-                from mediapipe.tasks.python.components.containers import BaseOptions
+                from mediapipe.tasks.python.core.base_options import BaseOptions
 
                 _model_asset = None
                 for c in _candidates:
