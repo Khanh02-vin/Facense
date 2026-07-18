@@ -179,23 +179,61 @@ def run_extraction(
         with open(meta_file, 'w') as f:
             json.dump(metadata, f, indent=2)
 
-        # Save embeddings as npz (keyed by item ID for serve.py compatibility)
-        import os
-        from collections import OrderedDict
-        embeddings_npz = OrderedDict()
-        for i, (emb, ident) in enumerate(zip(embeddings, identities)):
-            # Use identity as key; append frame index to handle duplicates
-            key = f"{ident}_{i}" if identities.count(ident) > 1 else ident
-            embeddings_npz[key] = emb.astype(np.float32).flatten()
+    # ──────────────────────────────────────────────
+    # Save unified artifacts (clip_id → identity mapping)
+    # ──────────────────────────────────────────────
+    print("\n[3] Saving unified artifacts...")
 
-        output_npz = os.path.join(output_dir, "embeddings.npz")
-        np.savez(output_npz, **embeddings_npz)
-        print(f"    Saved npz (serve-ready) to: {output_npz}")
+    # Build clip IDs and metadata mapping
+    clip_ids = [f"clip_{i:04d}" for i in range(len(frames))]
+    metadata_map = {}
+    for i, (clip_id, ident) in enumerate(zip(clip_ids, identities)):
+        metadata_map[clip_id] = {
+            "identity": ident,
+            "index": i,
+        }
 
-        # Save identity mapping
-        identity_map = {key: ident for key, ident in zip(embeddings_npz.keys(), identities)}
-        map_file = os.path.join(output_dir, f"image_to_identity_{model_name}.json")
-        map_file = os.path.join(output_dir, f"image_to_identity_{model_name}.json")
+    # Use the PRIMARY model embeddings for the unified npz
+    primary_model = models[0] if models else "siglip"
+    primary_file = os.path.join(output_dir, f"embeddings_{primary_model}.npy")
+    if os.path.exists(primary_file):
+        primary_emb = np.load(primary_file)
+        if primary_emb.ndim == 4:
+            primary_emb = primary_emb.mean(axis=2).squeeze(1)
+        elif primary_emb.ndim == 3:
+            primary_emb = primary_emb.mean(axis=1)
+
+        # Save as npz with clip_id keys
+        embeddings_npz = {}
+        for clip_id, emb in zip(clip_ids, primary_emb):
+            vec = np.asarray(emb, dtype=np.float32).flatten()
+            norm = np.linalg.norm(vec)
+            embeddings_npz[clip_id] = vec / norm if norm > 0 else vec
+
+        npz_file = os.path.join(output_dir, "embeddings.npz")
+        np.savez(npz_file, **embeddings_npz)
+        print(f"    Saved serve-ready npz: {npz_file} ({len(embeddings_npz)} clips)")
+
+    # Save metadata.json (clip_id → identity)
+    metadata_file = os.path.join(output_dir, "metadata.json")
+    with open(metadata_file, 'w', encoding='utf-8') as f:
+        json.dump(metadata_map, f, indent=2, ensure_ascii=False)
+    print(f"    Saved clip metadata: {metadata_file} ({len(metadata_map)} clips)")
+
+    # Save video info for each clip
+    video_info = {}
+    for i, (clip_id, ident) in enumerate(zip(clip_ids, identities)):
+        video_info[clip_id] = {
+            "identity": ident,
+        }
+    info_file = os.path.join(output_dir, "video_info.json")
+    with open(info_file, 'w', encoding='utf-8') as f:
+        json.dump(video_info, f, indent=2, ensure_ascii=False)
+    print(f"    Saved video info: {info_file}")
+
+    print("\n" + "=" * 60)
+    print("Extraction Complete!")
+    print("=" * 60)
         with open(map_file, 'w', encoding='utf-8') as f:
             json.dump(identity_map, f, indent=2, ensure_ascii=False)
 
