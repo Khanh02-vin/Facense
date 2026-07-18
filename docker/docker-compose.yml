@@ -38,7 +38,7 @@ services:
     working_dir: /workspace
     command: >
       python src/run_pipeline.py
-      --max ${MAX_VIDEOS:-}
+      --max ${MAX_VIDEOS:-50}
       --pairs ${NUM_PAIRS:-50}
     profiles:
       - full
