@@ -304,36 +304,16 @@ class DatasetPipeline:
         if not results:
             return
 
-        print(f"\n[5] Feature Statistics:")
-
-        # Aggregate by identity
-        identity_scores = {}
-        for r in results:
-            ident = r.get('identity', 'unknown')
-            score = r.get('attractiveness_score', r.get('blur_score', 0))
-
-            if ident not in identity_scores:
-                identity_scores[ident] = []
-            identity_scores[ident].append(score)
-
-        # Top identities by mean score
-        identity_means = {
-            k: np.mean(v) for k, v in identity_scores.items()
-        }
-
-        print(f"\n  Top 10 identities by attractiveness:")
-        for ident, score in sorted(identity_means.items(), key=lambda x: -x[1])[:10]:
-            print(f"    {ident}: {score:.3f}")
-
-        print(f"\n  Total identities: {len(identity_scores)}")
-
-        # Feature ranges
-        print(f"\n  Feature ranges:")
-        keys = ['motion_energy', 'blur_score', 'brightness', 'smile', 'eye_contact']
+        print(f"\n[5] Feature Ranges:")
+        keys = ['motion_energy', 'blur_score', 'brightness', 'smile', 'eye_contact',
+                'face_symmetry', 'head_yaw', 'head_pitch']
         for key in keys:
-            values = [r.get(key, 0) for r in results if r.get(key, 0) > 0]
+            values = [r.get(key, 0) for r in results if r.get(key, 0) != 0]
             if values:
-                print(f"    {key}: {np.min(values):.2f} - {np.max(values):.2f}")
+                print(f"    {key}: {np.min(values):.3f} - {np.max(values):.3f}")
+
+        print(f"\n  Total identities: {len(set(r.get('identity','?') for r in results))}")
+        print(f"  Total videos processed: {len(results)}")
 
 
 def generate_labeling_pairs(results: List[Dict], n_pairs: int = 50) -> List[Dict]:
@@ -381,6 +361,10 @@ def main():
                        help='Number of pairs to generate')
     parser.add_argument('--skip-processing', action='store_true',
                        help='Skip processing, just generate pairs')
+    parser.add_argument('--phase-4', action='store_true',
+                       help='Run Phase 4 explainability report after processing')
+    parser.add_argument('--phase-5', action='store_true',
+                       help='Run Phase 5 evaluation & validation after processing')
 
     args = parser.parse_args()
 
@@ -402,6 +386,170 @@ def main():
             json.dump(pairs, f, indent=2, ensure_ascii=False)
 
         print(f"  Saved {len(pairs)} pairs to {pairs_file}")
+
+    # ── Phase 4: Explainability ─────────────────────────────────────
+    if args.phase_4:
+        print("\n" + "="*60)
+        print("PHASE 4: EXPLAINABILITY")
+        print("="*60)
+
+        pairwise_labels_path = Path("pairwise_labels.json")
+        if not pairwise_labels_path.exists():
+            print("  [SKIP] pairwise_labels.json not found. Run labeling tool first.")
+        elif not results:
+            print("  [SKIP] No features loaded.")
+        else:
+            try:
+                from src.explainability.report import generate_report
+                from src.preference_learning.preference import BradleyTerryModel
+
+                # Load pairwise labels
+                with open(pairwise_labels_path, 'r', encoding='utf-8') as f:
+                    label_data = json.load(f)
+
+                labels = label_data.get("labels", [])
+                if not labels:
+                    print("  [SKIP] No labels found in pairwise_labels.json.")
+                else:
+                    from src.preference_learning.preference import PairwiseSample
+
+                    pairs = []
+                    for lbl in labels:
+                        if lbl.get("winner") not in ("A", "B", "a", "b"):
+                            continue
+                        winner = lbl["winner"].upper()
+                        pairs.append(PairwiseSample(
+                            user_id=lbl.get("user_id", "unknown"),
+                            image_A=lbl.get("video_a", ""),
+                            image_B=lbl.get("video_b", ""),
+                            winner=winner,
+                        ))
+
+                    # Build clip_features from results
+                    clip_features: dict[str, dict[str, float]] = {}
+                    for r in results:
+                        cname = r.get("clip_name", "")
+                        if not cname:
+                            continue
+                        feat = {k: r[k] for k in [
+                            "motion_energy", "motion_peak", "motion_variance",
+                            "blur_score", "brightness", "brightness_std",
+                            "face_visibility", "smile", "mouth_open",
+                            "eye_contact", "head_yaw", "head_pitch",
+                            "head_roll", "face_symmetry", "face_clarity",
+                        ] if k in r}
+                        clip_features[cname] = feat
+
+                    # Fit Bradley-Terry
+                    bt = BradleyTerryModel()
+                    bt_result = bt.fit(pairs)
+                    bt_scores = bt_result.item_scores
+
+                    # Generate report
+                    report = generate_report(pairs, clip_features, bt_scores)
+
+                    report_path = OUTPUT_DIR / "explain_report.json"
+                    with open(report_path, 'w', encoding='utf-8') as f:
+                        json.dump(report, f, indent=2, ensure_ascii=False)
+
+                    print(f"  Saved explain report to {report_path}")
+                    print(f"  Evidence top features:")
+                    for item in report.get("evidence", {}).get("consensus", [])[:5]:
+                        print(f"    {item['feature']}: {item['avg_weight']}")
+                    print(f"  Stability: {report.get('stability', {}).get('verdict', '?')}")
+                    print(f"  Clusters: {len(report.get('clusters', []))} types found")
+            except Exception as e:
+                print(f"  ERROR in Phase 4: {e}")
+                import traceback
+                traceback.print_exc()
+
+    # ── Phase 5: Evaluation & Validation ────────────────────────────
+    if args.phase_5:
+        print("\n" + "="*60)
+        print("PHASE 5: EVALUATION & VALIDATION")
+        print("="*60)
+
+        pairwise_labels_path = Path("pairwise_labels.json")
+        if not pairwise_labels_path.exists():
+            print("  [SKIP] pairwise_labels.json not found. Run labeling tool first.")
+        elif not results:
+            print("  [SKIP] No features loaded.")
+        else:
+            try:
+                from src.evaluation.phase5 import validate_explanations
+                from src.preference_learning.preference import BradleyTerryModel, PairwiseSample
+
+                # Load pairwise labels
+                with open(pairwise_labels_path, 'r', encoding='utf-8') as f:
+                    label_data = json.load(f)
+
+                labels = label_data.get("labels", [])
+                if not labels:
+                    print("  [SKIP] No labels found.")
+                else:
+                    pairs = []
+                    for lbl in labels:
+                        if lbl.get("winner") not in ("A", "B", "a", "b"):
+                            continue
+                        winner = lbl["winner"].upper()
+                        pairs.append(PairwiseSample(
+                            user_id=lbl.get("user_id", "unknown"),
+                            image_A=lbl.get("video_a", ""),
+                            image_B=lbl.get("video_b", ""),
+                            winner=winner,
+                        ))
+
+                    # Build clip_features
+                    clip_features: dict[str, dict[str, float]] = {}
+                    for r in results:
+                        cname = r.get("clip_name", "")
+                        if not cname:
+                            continue
+                        feat = {k: r[k] for k in [
+                            "motion_energy", "motion_peak", "motion_variance",
+                            "blur_score", "brightness", "brightness_std",
+                            "face_visibility", "smile", "mouth_open",
+                            "eye_contact", "head_yaw", "head_pitch",
+                            "head_roll", "face_symmetry", "face_clarity",
+                        ] if k in r}
+                        clip_features[cname] = feat
+
+                    # Fit BT
+                    bt = BradleyTerryModel()
+                    bt_result = bt.fit(pairs)
+                    bt_scores = bt_result.item_scores
+
+                    # Load Phase 4 stability reference if available
+                    stability_ref = None
+                    explain_report_path = OUTPUT_DIR / "explain_report.json"
+                    if explain_report_path.exists():
+                        try:
+                            with open(explain_report_path, 'r', encoding='utf-8') as f:
+                                explain_report = json.load(f)
+                            stability_ref = explain_report.get("stability")
+                        except Exception:
+                            pass
+
+                    # Run validation
+                    report = validate_explanations(
+                        pairs, clip_features, bt_scores,
+                        stability_reference=stability_ref,
+                    )
+
+                    validation_path = OUTPUT_DIR / "validation_report.json"
+                    with open(validation_path, 'w', encoding='utf-8') as f:
+                        json.dump(report, f, indent=2, ensure_ascii=False)
+
+                    print(f"  Saved validation report to {validation_path}")
+                    ks = report.get("kpi_summary", {})
+                    print(f"  Stability KPI:  {ks.get('stability', {}).get('verdict', '?')}")
+                    print(f"  Consistency KPI: {ks.get('consistency', {}).get('verdict', '?')}")
+                    print(f"  User-confirmable KPI: {ks.get('user_confirmable', {}).get('verdict', '?')}")
+                    print(f"  Overall: {ks.get('overall', '?')}")
+            except Exception as e:
+                print(f"  ERROR in Phase 5: {e}")
+                import traceback
+                traceback.print_exc()
 
     print("\n" + "="*60)
     print("PIPELINE COMPLETE")
