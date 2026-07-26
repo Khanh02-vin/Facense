@@ -1,17 +1,17 @@
 """
-Preference Module - Pairwise Preference Learning
+Preference Module — Pairwise Preference Learning (Phase 3).
 
-Models:
-- Bradley-Terry Model
-- Neural Reward Model
-- Mixture of Prototypes
+Single canonical path:
+  PairwiseSample → BradleyTerryModel → preference scores
+
+No neural / MoP variants.  Bradley-Terry is stable, L-BFGS-B–based,
+with automatic L2 regularisation when the preference graph is
+disconnected or sparse.
 """
 
 import numpy as np
-from typing import Optional, Literal
+from typing import Literal
 from dataclasses import dataclass
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import roc_auc_score
 from scipy.optimize import minimize
 
 
@@ -28,10 +28,91 @@ class PairwiseSample:
 @dataclass
 class BradleyTerryResult:
     """Bradley-Terry model result."""
+
     item_scores: dict[str, float]
     convergence: bool
     n_iterations: int
     log_likelihood: float
+    alpha_used: float = 0.0
+    alpha_mode: str = "auto:none"
+
+
+# ============================================================================
+# Helpers (module-level)
+# ============================================================================
+
+
+def _graph_components(
+    n_items: int, pair_indices: list[tuple[int, int]]
+) -> list[set[int]]:
+    """Return the connected components of the preference graph.
+
+    Items that never appear in any pair form singleton components.
+    """
+
+    parent = list(range(n_items))
+
+    def find(x: int) -> int:
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]  # path compression
+            x = parent[x]
+        return x
+
+    def union(a: int, b: int) -> None:
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[ra] = rb
+
+    for w, l in pair_indices:
+        union(w, l)
+
+    comps: dict[int, set[int]] = {}
+    for i in range(n_items):
+        comps.setdefault(find(i), set()).add(i)
+    return list(comps.values())
+
+
+def _auto_alpha(
+    n_items: int,
+    pair_indices: list[tuple[int, int]],
+    alpha_user: float,
+) -> tuple[float, str]:
+    """Pick the L2 regularisation strength.
+
+    * If the caller passed a positive ``alpha_user``, use it as-is.
+    * Otherwise, if the preference graph is **disconnected** (more
+      than one component), pick a small alpha proportional to the
+      inverse edge count so the unconstrained parameters cannot
+      drift arbitrarily between components.
+    * Otherwise, if the graph is **sparse** (fewer than ``2 * N``
+      edges), pick a small alpha proportional to ``1 / N``.
+    * Otherwise return ``0.0`` and let the BT NLL drive the fit.
+
+    Returns ``(alpha, mode_label)``.
+    """
+
+    if alpha_user > 0.0:
+        return float(alpha_user), "user"
+
+    n_edges = len(pair_indices)
+    components = _graph_components(n_items, pair_indices)
+    if len(components) > 1:
+        return 1.0 / max(n_edges, 1), f"auto:disconnected({len(components)})"
+    if n_edges < 2 * n_items:
+        return 0.5 / max(n_items, 1), "auto:sparse"
+    return 0.0, "auto:none"
+
+
+def _log_likelihood(w: np.ndarray, i_idx: np.ndarray, j_idx: np.ndarray) -> float:
+    """Compute the **unpenalised** Bradley-Terry log-likelihood from the
+    fitted weights.  Recomputing from the data (instead of reading
+    ``-result.fun`` from scipy) gives a value that does not depend on
+    the optimiser's bookkeeping and is unaffected by ``alpha``."""
+
+    diff = np.clip(w[i_idx] - w[j_idx], -30.0, 30.0)
+    prob = 1.0 / (1.0 + np.exp(-diff))
+    prob = np.clip(prob, 1e-15, 1.0 - 1e-15)
+    return float(np.sum(np.log(prob)))
 
 
 class BradleyTerryModel:
@@ -169,330 +250,6 @@ class BradleyTerryModel:
         return sorted(scores, key=lambda x: x[1], reverse=True)
 
 
-class NeuralRewardModel:
-    """Neural reward model for pairwise preferences."""
-
-    def __init__(
-        self,
-        embedding_dim: int,
-        hidden_dim: int = 128,
-        lr: float = 0.001,
-        dropout: float = 0.1
-    ):
-        self.embedding_dim = embedding_dim
-        self.hidden_dim = hidden_dim
-        self.lr = lr
-        self.dropout = dropout
-        self.model = None
-        self.is_fitted = False
-
-    def _build_model(self):
-        """Build PyTorch model."""
-        try:
-            import torch
-            import torch.nn as nn
-
-            class RewardNet(nn.Module):
-                def __init__(self, embedding_dim, hidden_dim, dropout):
-                    super().__init__()
-                    self.net = nn.Sequential(
-                        nn.Linear(embedding_dim, hidden_dim),
-                        nn.ReLU(),
-                        nn.Dropout(dropout),
-                        nn.Linear(hidden_dim, hidden_dim // 2),
-                        nn.ReLU(),
-                        nn.Dropout(dropout),
-                        nn.Linear(hidden_dim // 2, 1)
-                    )
-
-                def forward(self, x):
-                    return self.net(x)
-
-            return RewardNet(self.embedding_dim, self.hidden_dim, self.dropout)
-        except ImportError:
-            raise ImportError("PyTorch required: pip install torch")
-
-    def fit(
-        self,
-        embeddings_A: np.ndarray,
-        embeddings_B: np.ndarray,
-        winners: np.ndarray,
-        epochs: int = 100,
-        batch_size: int = 32,
-        validation_split: float = 0.2
-    ) -> dict:
-        """Train reward model with utility-pairwise loss.
-
-        The network f(·) is trained so that:
-            sigmoid(f(emb_A) - f(emb_B)) ≈ P(A beats B)
-
-        This keeps predict(embedding) and predict_pair() consistent.
-
-        Args:
-            embeddings_A: (n_pairs, embedding_dim) embeddings of image A.
-            embeddings_B: (n_pairs, embedding_dim) embeddings of image B.
-            winners: (n_pairs,) 1 if A wins, 0 if B wins.
-            epochs: Training epochs.
-            batch_size: Batch size.
-            validation_split: Fraction for validation.
-
-        Returns:
-            Training history dict.
-        """
-        import torch
-        import torch.nn as nn
-        from torch.utils.data import TensorDataset, DataLoader
-
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-        # Build model — maps single embedding → scalar score
-        self.model = self._build_model().to(device)
-        optimizer = torch.optim.Adam(self.model.parameters(), lr=self.lr)
-
-        # Prepare data: input is (emb_A, emb_B), label is 1 if A > B else 0
-        X_A = torch.FloatTensor(embeddings_A)
-        X_B = torch.FloatTensor(embeddings_B)
-        y = torch.FloatTensor(winners)
-
-        dataset = TensorDataset(X_A, X_B, y)
-
-        n_train = int(len(dataset) * (1 - validation_split))
-        train_ds, val_ds = torch.utils.data.random_split(
-            dataset, [n_train, len(dataset) - n_train]
-        )
-
-        train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True)
-        val_loader = DataLoader(val_ds, batch_size=batch_size)
-
-        history = {"train_loss": [], "val_auc": []}
-
-        for epoch in range(epochs):
-            # Training
-            self.model.train()
-            train_loss = 0.0
-            for emb_A, emb_B, label in train_loader:
-                emb_A, emb_B, label = emb_A.to(device), emb_B.to(device), label.to(device)
-
-                optimizer.zero_grad()
-                score_A = self.model(emb_A).squeeze()
-                score_B = self.model(emb_B).squeeze()
-                # sigmoid(score_A - score_B) = P(A > B)
-                logits = score_A - score_B
-                loss = nn.BCEWithLogitsLoss()(logits, label)
-                loss.backward()
-                optimizer.step()
-                train_loss += loss.item()
-
-            history["train_loss"].append(train_loss / len(train_loader))
-
-            # Validation
-            self.model.eval()
-            val_preds, val_labels = [], []
-            with torch.no_grad():
-                for emb_A, emb_B, label in val_loader:
-                    emb_A, emb_B = emb_A.to(device), emb_B.to(device)
-                    score_A = self.model(emb_A).squeeze()
-                    score_B = self.model(emb_B).squeeze()
-                    probs = torch.sigmoid(score_A - score_B).cpu().numpy()
-                    probs = np.atleast_1d(probs)
-                    val_preds.extend(probs.tolist())
-                    val_labels.extend(label.numpy().tolist())
-
-            try:
-                val_auc = roc_auc_score(val_labels, val_preds)
-            except Exception:
-                val_auc = 0.5
-            history["val_auc"].append(val_auc)
-
-        self.is_fitted = True
-        self.device = device
-        return history
-
-    def predict_pair(self, emb_A: np.ndarray, emb_B: np.ndarray) -> float:
-        """Predict P(A beats B) from a pair of embeddings.
-
-        Args:
-            emb_A: embedding of image A.
-            emb_B: embedding of image B.
-
-        Returns:
-            Probability in [0, 1].
-        """
-        if not self.is_fitted:
-            return 0.5
-        import torch
-        self.model.eval()
-        with torch.no_grad():
-            ta = torch.FloatTensor(emb_A).unsqueeze(0).to(self.device)
-            tb = torch.FloatTensor(emb_B).unsqueeze(0).to(self.device)
-            diff = self.model(ta) - self.model(tb)
-            return float(torch.sigmoid(diff).item())
-
-    def predict(self, embedding: np.ndarray) -> float:
-        """Predict reward for single embedding.
-
-        Args:
-            embedding: (embedding_dim,) image embedding
-
-        Returns:
-            Reward score
-        """
-        if not self.is_fitted:
-            return 0.5
-
-        import torch
-
-        self.model.eval()
-        with torch.no_grad():
-            emb_t = torch.FloatTensor(embedding).unsqueeze(0).to(self.device)
-            reward = self.model(emb_t).item()
-
-        return float(reward)
-
-    def predict_batch(self, embeddings: np.ndarray) -> np.ndarray:
-        """Predict rewards for batch of embeddings."""
-        if not self.is_fitted:
-            return np.full(len(embeddings), 0.5)
-
-        import torch
-        from torch.utils.data import TensorDataset, DataLoader
-
-        self.model.eval()
-        dataset = TensorDataset(torch.FloatTensor(embeddings))
-        loader = DataLoader(dataset, batch_size=32)
-
-        rewards = []
-        with torch.no_grad():
-            for (batch,) in loader:
-                batch = batch.to(self.device)
-                r = self.model(batch).squeeze(-1).cpu().numpy()
-                rewards.extend(r if r.ndim > 0 else [r])
-
-        return np.array(rewards)
-
-
-class MixtureOfPrototypes:
-    """Preference as mixture of prototypes (multi-modal)."""
-
-    def __init__(
-        self,
-        n_prototypes: int = 5,
-        temperature: float = 0.1,
-        max_iterations: int = 100
-    ):
-        self.n_prototypes = n_prototypes
-        self.temperature = temperature
-        self.max_iterations = max_iterations
-        self.prototypes = None
-        self.weights = None
-
-    def fit(
-        self,
-        positive_embeddings: np.ndarray,
-        negative_embeddings: np.ndarray = None
-    ) -> dict:
-        """Fit mixture model.
-
-        Args:
-            positive_embeddings: (n_pos, dim) embeddings of liked images
-            negative_embeddings: Optional (n_neg, dim) embeddings of disliked images
-
-        Returns:
-            Fit results dict
-        """
-        n_samples, dim = positive_embeddings.shape
-
-        # Initialize prototypes from positive embeddings
-        if n_samples >= self.n_prototypes:
-            # K-means initialization
-            from sklearn.cluster import KMeans
-            kmeans = KMeans(n_clusters=self.n_prototypes, random_state=42, n_init=10)
-            kmeans.fit(positive_embeddings)
-            self.prototypes = kmeans.cluster_centers_
-            self.weights = np.ones(self.n_prototypes) / self.n_prototypes
-        else:
-            # Random initialization
-            idx = np.random.choice(n_samples, self.n_prototypes, replace=True)
-            self.prototypes = positive_embeddings[idx]
-            self.weights = np.ones(self.n_prototypes) / self.n_prototypes
-
-        # EM-like optimization
-        for iteration in range(self.max_iterations):
-            prev_prototypes = self.prototypes.copy()
-
-            # E-step: compute responsibilities
-            responsibilities = self._compute_responsibilities(positive_embeddings)
-
-            # M-step: update prototypes and weights
-            for k in range(self.n_prototypes):
-                resp_k = responsibilities[:, k]
-                total_resp = np.sum(resp_k) + 1e-10
-
-                # Update prototype as weighted mean
-                self.prototypes[k] = np.sum(
-                    positive_embeddings * resp_k[:, np.newaxis],
-                    axis=0
-                ) / total_resp
-
-                # Update weight
-                self.weights[k] = total_resp / n_samples
-
-            # Normalize prototypes
-            self.prototypes = self.prototypes / (
-                np.linalg.norm(self.prototypes, axis=1, keepdims=True) + 1e-10
-            )
-
-            # Check convergence
-            delta = np.max(np.abs(self.prototypes - prev_prototypes))
-            if delta < 1e-4:
-                break
-
-        return {
-            "n_iterations": iteration + 1,
-            "converged": delta < 1e-4,
-            "prototype_weights": self.weights.tolist(),
-            "n_prototypes": self.n_prototypes
-        }
-
-    def _compute_responsibilities(self, embeddings: np.ndarray) -> np.ndarray:
-        """Compute soft clustering responsibilities."""
-        n_samples = len(embeddings)
-        responsibilities = np.zeros((n_samples, self.n_prototypes))
-
-        for k in range(self.n_prototypes):
-            sim = np.dot(embeddings, self.prototypes[k])
-            responsibilities[:, k] = np.exp(sim / self.temperature)
-
-        # Normalize
-        responsibilities = responsibilities / (
-            responsibilities.sum(axis=1, keepdims=True) + 1e-10
-        )
-
-        return responsibilities
-
-    def score(self, embedding: np.ndarray) -> float:
-        """Score embedding against mixture.
-
-        Returns:
-            Log-likelihood under mixture model
-        """
-        if self.prototypes is None:
-            return 0.0
-
-        # Compute weighted sum of similarities
-        similarities = np.array([
-            np.dot(embedding, proto) for proto in self.prototypes
-        ])
-
-        weighted_sim = np.sum(
-            self.weights * np.exp(similarities / self.temperature)
-        )
-
-        return float(np.log(weighted_sim + 1e-10))
-
-    def score_batch(self, embeddings: np.ndarray) -> np.ndarray:
-        """Score batch of embeddings."""
-        return np.array([self.score(emb) for emb in embeddings])
 
 
 def load_pairwise_data(csv_path: str) -> list[PairwiseSample]:

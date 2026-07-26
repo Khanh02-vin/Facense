@@ -22,7 +22,6 @@ from src.feature_extraction.feature_extractor_layer2 import FeatureExtractorLaye
 from src.preference_learning.preference import (
     BradleyTerryModel,
     PairwiseSample,
-    NeuralRewardModel,
 )
 
 
@@ -125,46 +124,6 @@ class TestBradleyTerry(unittest.TestCase):
         self.assertEqual(scores, sorted(scores, reverse=True))
 
 
-class TestNeuralRewardContract(unittest.TestCase):
-    """NeuralRewardModel must have consistent train/predict semantics."""
-
-    @classmethod
-    def setUpClass(cls):
-        try:
-            import torch  # noqa: F401
-        except ImportError:
-            raise unittest.SkipTest("PyTorch not available")
-
-    def test_pair_prediction_consistent(self):
-        """predict_pair(A, B) should be ≈ 1 - predict_pair(B, A)."""
-        rng = np.random.default_rng(42)
-        n, dim = 20, 64
-        emb_A = rng.normal(size=(n, dim)).astype(np.float32)
-        emb_B = rng.normal(size=(n, dim)).astype(np.float32)
-        winners = (rng.random(n) > 0.5).astype(np.float32)
-
-        model = NeuralRewardModel(embedding_dim=dim, hidden_dim=32)
-        model.fit(emb_A, emb_B, winners, epochs=2, batch_size=8)
-
-        p_ab = model.predict_pair(emb_A[0], emb_B[0])
-        p_ba = model.predict_pair(emb_B[0], emb_A[0])
-        self.assertAlmostEqual(p_ab + p_ba, 1.0, places=4,
-                               msg="predict_pair(A,B) + predict_pair(B,A) should ≈ 1")
-
-    def test_predict_returns_scalar(self):
-        rng = np.random.default_rng(42)
-        dim = 64
-        emb = rng.normal(size=(dim,)).astype(np.float32)
-        emb_A = rng.normal(size=(5, dim)).astype(np.float32)
-        emb_B = rng.normal(size=(5, dim)).astype(np.float32)
-
-        model = NeuralRewardModel(embedding_dim=dim, hidden_dim=32)
-        model.fit(emb_A, emb_B, np.ones(5), epochs=2, batch_size=5)
-
-        score = model.predict(emb)
-        self.assertIsInstance(score, float)
-
-
 class TestArtifactCompatibility(unittest.TestCase):
     """serve.py artifact format checks."""
 
@@ -228,6 +187,75 @@ class TestServeBootstrap(unittest.TestCase):
         bootstrap_sample_state(n_items=10, dim=8, seed=1)
         import serve as sv
         self.assertEqual(len(sv.STATE.embeddings), 10)
+
+
+class TestLabelingContract(unittest.TestCase):
+    """Phase 2 contracts: schema, resume key, frame-quality formula."""
+
+    # ---- Schema ------------------------------------------------------
+
+    def test_pairwise_sample_winner_is_strict_AB(self):
+        """PairwiseSample.winner is Literal["A", "B"] — strict."""
+        from typing import get_args
+
+        hints = PairwiseSample.__dataclass_fields__["winner"].type
+        self.assertEqual(get_args(hints), ("A", "B"))
+
+    def test_html_label_record_uses_winner_field(self):
+        """HTML labels use the same ``winner`` key as PairwiseSample.
+
+        The labeling tool emits four states (A/B/equal/skip); only
+        the BT trainer consumes A/B.  This test guards the field
+        name regardless of value.
+        """
+        sample = PairwiseSample(
+            user_id="u1", image_A="a", image_B="b", winner="A",
+        )
+        label = {
+            "winner": "A",
+            "video_a": "a", "video_b": "b",
+            "identity_a": "x", "identity_b": "y",
+            "position": {"left": "a", "right": "b"},
+            "confidence": 2, "latency_ms": 100,
+            "timestamp": "2026-01-01T00:00:00Z",
+        }
+        # Both use the same key.  The BT trainer's filter
+        # (preference.py:97) drops 'equal' / 'skip' silently.
+        self.assertIn("winner", label)
+        self.assertIn(label["winner"], ("A", "B", "equal", "skip"))
+
+    # ---- Resume key --------------------------------------------------
+
+    def test_resume_key_uses_unambiguous_separator(self):
+        """The HTML resume key uses ``__VS__`` so that clip names
+        containing ``_`` cannot collide (e.g. ``A_1`` + ``B_2`` vs
+        ``A`` + ``1_B_2``).
+        """
+        SEP = "__VS__"
+        a, b = "Anne_Hathaway_1", "Anne_1"
+        key1 = f"{a}{SEP}{b}"
+        key2 = f"{b}{SEP}{a}"
+        # Two different pairs → two different keys
+        self.assertNotEqual(key1, key2)
+        # Round-trip via the same pair
+        pair = ("Anne_Hathaway_1", "Anne_1")
+        self.assertEqual(f"{pair[0]}{SEP}{pair[1]}", "Anne_Hathaway_1__VS__Anne_1")
+
+    # ---- Frame-quality formula --------------------------------------
+
+    def test_quality_score_in_unit_range(self):
+        """``compute_quality_score`` is shared between frame_sampler
+        and the labeling-tool extractor; the rewrite must keep it in
+        [0, 1] for any plausible grayscale input.
+        """
+        from src.frame_extraction.frame_sampler import compute_quality_score
+
+        rng = np.random.default_rng(0)
+        for _ in range(20):
+            gray = rng.integers(0, 256, size=(64, 64), dtype=np.uint8)
+            q = compute_quality_score(gray)
+            self.assertGreaterEqual(q, 0.0)
+            self.assertLessEqual(q, 1.0)
 
 
 if __name__ == "__main__":

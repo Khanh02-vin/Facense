@@ -162,7 +162,7 @@ def run_evaluation(
     print("-" * 40)
 
     if synthetic:
-        from src.preference_learning.preference import BradleyTerryModel, MixtureOfPrototypes, PairwiseSample
+        from src.preference_learning.preference import BradleyTerryModel, PairwiseSample
 
         pairs = []
         for i in range(50):
@@ -177,11 +177,6 @@ def run_evaluation(
         bt_model = BradleyTerryModel()
         bt_result = bt_model.fit(pairs)
 
-        np.random.seed(42)
-        positive_emb = np.random.randn(100, 64)
-        mixture = MixtureOfPrototypes(n_prototypes=5)
-        mixture_result = mixture.fit(positive_emb)
-
         results["phases"]["preference_learning"] = {
             "status": "completed",
             "synthetic": True,
@@ -190,13 +185,8 @@ def run_evaluation(
                 "converged": bt_result.convergence,
                 "n_iterations": bt_result.n_iterations,
             },
-            "mixture_prototypes": {
-                "n_prototypes": mixture_result["n_prototypes"],
-                "converged": mixture_result["converged"],
-            },
         }
         print(f"[+] Bradley-Terry: {len(bt_result.item_scores)} items, converged: {bt_result.convergence}")
-        print(f"[+] Mixture of Prototypes: {mixture_result['n_prototypes']} prototypes")
     else:
         print("[-] Phase 3 skipped — requires pairwise annotations.")
     print()
